@@ -1,4 +1,4 @@
-package com.company;
+package com.sportsbetting;
 
 public class Main {
 
