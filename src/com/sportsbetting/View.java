@@ -35,7 +35,7 @@ public class View {
 
     }
     void printResults(Player player, List<Wager> wagers){
-        
+
     }
 
 
