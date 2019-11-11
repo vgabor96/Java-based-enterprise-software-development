@@ -3,6 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="d0deeca1-ec56-4f0d-8c54-453cae21abee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sportsbetting/domain/Bet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sportsbetting/domain/Bet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sportsbetting/domain/Outcome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sportsbetting/domain/Outcome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sportsbetting/domain/OutcomeOdd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sportsbetting/domain/OutcomeOdd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sportsbetting/domain/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sportsbetting/domain/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sportsbetting/domain/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sportsbetting/domain/Result.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sportsbetting/domain/SportEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sportsbetting/domain/SportEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sportsbetting/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sportsbetting/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sportsbetting/domain/Wager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sportsbetting/domain/Wager.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
