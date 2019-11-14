@@ -80,7 +80,7 @@ public class App {
         //BET 2
         Bet bet_2 = new BetBuilder("number of scored goals")
                 .event(se)
-                .betType(BetType.PLAYERS_SCORE)
+                .betType(BetType.GOALS)
                 .outComes(new ArrayList<Outcome>())
                 .build();
 
