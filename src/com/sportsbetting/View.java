@@ -9,32 +9,32 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class View {
-    Player readPlayerData(){
+    public Player readPlayerData(){
         return new Player();
     }
 
-    void printWelcomeMessage(Player player){
+    public void printWelcomeMessage(Player player){
 
     }
-    void printBalance(Player player){
+    public void printBalance(Player player){
 
     }
-    void printOutcomeOdds(List<SportEvent> events){
+    public void printOutcomeOdds(List<SportEvent> events){
 
     }
-    OutcomeOdd selectOutComeOdd(List<SportEvent> events){
+    public OutcomeOdd selectOutComeOdd(List<SportEvent> events){
         return new OutcomeOdd();
     }
-    BigDecimal readWagerAmount(){
+    public BigDecimal readWagerAmount(){
         return  BigDecimal.ONE;
     }
-    void printWagerSaved(Wager wager){
+    public void printWagerSaved(Wager wager){
 
     }
-    void printNotEnoughBalance(Player player){
+    public void printNotEnoughBalance(Player player){
 
     }
-    void printResults(Player player, List<Wager> wagers){
+    public void printResults(Player player, List<Wager> wagers){
 
     }
 

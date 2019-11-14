@@ -1,5 +1,10 @@
 package com.sportsbetting;
 
+import com.sportsbetting.domain.Player;
+import com.sportsbetting.domain.Wager;
+
+import java.util.ArrayList;
+
 public class App {
 
     SportsBettingService sportsBettingService;
@@ -22,10 +27,18 @@ public class App {
     void createPlayer() {
 
     }
-    void calculateResults(){
+
+    void doBetting(){
 
     }
+    void calculateResults(){
+        this.sportsBettingService.CalculateResults();
+    }
     void printResults(){
+    view.printResults(new Player(), new ArrayList<Wager>());
+    }
+
+    void Initialize(){
 
     }
 }
