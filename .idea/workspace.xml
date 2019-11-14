@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d0deeca1-ec56-4f0d-8c54-453cae21abee" name="Default Changelist" comment="" />
+    <list default="true" id="d0deeca1-ec56-4f0d-8c54-453cae21abee" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/sportsbetting/builder/BetBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/sportsbetting/builder/OutComeBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/sportsbetting/builder/OutComeOddBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/sportsbetting/builder/PlayerBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/sportsbetting/builder/SportEventBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,8 +19,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -26,6 +33,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunDashboard">
