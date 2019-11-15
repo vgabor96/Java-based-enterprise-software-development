@@ -43,10 +43,10 @@ public class App {
         view.printWelcomeMessage(this.player);
         view.printBalance(this.player);
         doBetting();
-        sportsBettingService.CalculateResults();
+        calculateResults();
         this.player = sportsBettingService.findPlayer();
         this.wagers = sportsBettingService.findAllWagers();
-        view.printResults(this.player,this.wagers);
+        printResults();
 
 
 
@@ -78,7 +78,7 @@ public class App {
     }
     void printResults() {
 
-    view.printResults(new Player(), new ArrayList<Wager>());
+    view.printResults(this.player, this.wagers);
 
     }
 
@@ -123,7 +123,7 @@ public class App {
 
     void Initialize(){
         this.player = new Player();
-        this.sportevents = new ArrayList<SportEvent>();
+        this.sportevents = sportsBettingService.findAllSportEvents();
         this.bets = new ArrayList<Bet>();
         this.outcomes = new ArrayList<Outcome>();
         this.outcomeOdds = new ArrayList<OutcomeOdd>();
