@@ -44,6 +44,9 @@ public class App {
         view.printBalance(this.player);
         doBetting();
         sportsBettingService.CalculateResults();
+        this.player = sportsBettingService.findPlayer();
+        this.wagers = sportsBettingService.findAllWagers();
+        view.printResults(this.player,this.wagers);
 
 
 

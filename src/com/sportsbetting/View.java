@@ -154,6 +154,18 @@ public class View {
             System.out.println(" You don't have enough money, your balance is "+player.getBalance()+" "+player.getCurrency());
     }
     public void printResults(Player player, List<Wager> wagers){
+        if (wagers != null && wagers.size()> 0 && player!= null)
+        {
+            System.out.println("Results:");
+            for ( Wager wager: wagers ){
+                System.out.println("Wager '"+wager.getOdd().getOutcome().getBet().getDescription()
+                        +" = "+wager.getOdd().getOutcome().getDescription()
+                        +"' of "+wager.getOdd().getOutcome().getBet().getEvent().getTitle()
+                        +" [odd: "+wager.getOdd().getValue()
+                        +", amount: "+wager.getAmount()+"], win: "+wager.isWin());
+            }
+            System.out.println("Your new balance is "+player.getBalance()+ " "+player.getCurrency());
+        }
 
     }
 
