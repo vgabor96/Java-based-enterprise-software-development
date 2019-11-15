@@ -6,11 +6,14 @@ import com.sportsbetting.builder.OutComeOddBuilder;
 import com.sportsbetting.builder.SportEventBuilder;
 import com.sportsbetting.domain.*;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class App {
 
@@ -21,27 +24,36 @@ public class App {
     List<Outcome> outcomes;
     List<SportEvent> sportevents;
     List<OutcomeOdd> outcomeOdds;
+    List<Wager> wagers;
     public App(SportsBettingService sportsBettingService, View view) {
         this.sportsBettingService = sportsBettingService;
         this.view = view;
         Initialize();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         App app = new App(new SportsBettingService(), new View());
         app.play();
     }
 
     void play() {
+        createPlayer();
+        view.printWelcomeMessage(this.player);
+        view.printBalance(this.player);
+        doBetting();
+
 
 
     }
 
     void createPlayer() {
-
+    this.player = this.view.readPlayerData();
     }
 
-    void doBetting(){
+    void doBetting() {
+
+            view.selectOutComeOdd(this.sportevents);
 
     }
     void calculateResults(){
@@ -60,6 +72,7 @@ public class App {
         this.bets = new ArrayList<Bet>();
         this.outcomes = new ArrayList<Outcome>();
         this.outcomeOdds = new ArrayList<OutcomeOdd>();
+        this.wagers = new ArrayList<Wager>();
 
 
         LocalDateTime startDate =LocalDateTime.parse("2020-01-01 12:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
