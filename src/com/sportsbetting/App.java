@@ -43,23 +43,29 @@ public class App {
         view.printWelcomeMessage(this.player);
         view.printBalance(this.player);
         doBetting();
+        sportsBettingService.CalculateResults();
 
 
 
     }
 
     void createPlayer() {
-    this.player = this.view.readPlayerData();
-    this.sportsBettingService.savePlayer(this.player);
+    Player player = this.view.readPlayerData();
+    this.sportsBettingService.savePlayer(player);
+    this.player = this.sportsBettingService.findPlayer();
     }
 
     void doBetting() {
 
+        do {
             this.selectedOutComeOdd = view.selectOutComeOdd(this.sportevents);
             if(selectedOutComeOdd != null)
             {
                 this.WagerCreation();
             }
+        }while(selectedOutComeOdd != null);
+
+
 
 
     }
@@ -87,6 +93,18 @@ public class App {
             if (value.compareTo(player.getBalance()) <= 0)
             {
                 enoughbalance = true;
+                player.setBalance(player.getBalance().subtract(value));
+                Wager wager = new Wager();
+                wager.setPlayer(this.player);
+                wager.setAmount(value);
+                wager.setCurrency(player.getCurrency());
+                wager.setOdd(selectedOutComeOdd);
+                wager.setProcessed(false);
+                //wager.setTimestampCreated();
+                //wager.setWin();
+                sportsBettingService.saveWager(wager);
+                view.printWagerSaved(wager);
+                view.printBalance(this.player);
 
             }
             else

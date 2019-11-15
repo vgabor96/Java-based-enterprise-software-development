@@ -30,11 +30,11 @@ public class View {
         balance = Integer.parseInt(in.nextLine());
         System.out.println("What is your currency? (HUF, EUR or USD) ");
         currency = in.nextLine();
-        if (currency.equals(Currency.EUR))
+        if (currency.equals("EUR"))
         {
             currency1 = Currency.EUR;
         }
-        else if (currency.equals(Currency.USD))
+        else if (currency.equals("USD"))
         {
             currency1 = Currency.USD;
         }
@@ -144,7 +144,11 @@ public class View {
     }
 
     public void printWagerSaved(Wager wager){
-
+        System.out.println("Wager '"+wager.getOdd().getOutcome().getBet().getDescription()
+                +" = "+wager.getOdd().getOutcome().getDescription()
+                +"' of "+wager.getOdd().getOutcome().getBet().getEvent().getTitle()
+                +" [odd: "+wager.getOdd().getValue()
+                +", amount: "+wager.getAmount()+"] saved!");
     }
     public void printNotEnoughBalance(Player player){
             System.out.println(" You don't have enough money, your balance is "+player.getBalance()+" "+player.getCurrency());
