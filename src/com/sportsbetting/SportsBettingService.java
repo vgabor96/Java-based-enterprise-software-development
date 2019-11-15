@@ -8,20 +8,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SportsBettingService {
-    public void savePlayer(Player player){
+    private Player player;
+    private List<SportEvent> sportevents;
+    private List<Wager> wagers;
 
+    public SportsBettingService() {
+        this.player = new Player();
+        this.sportevents = new ArrayList<SportEvent>();
+        this.wagers = new ArrayList<Wager>();
+    }
+
+    public void savePlayer(Player player){
+        this.player = player;
     }
     public Player findPlayer() {
-        return new Player();
+        return this.player;
     }
     public List<SportEvent> findAllSportEvents() {
-        return new ArrayList<SportEvent>() ;
+        return this.sportevents ;
     }
     public void saveWager(Wager wager){
-
+        this.wagers.add(wager);
     }
     public List<Wager>findAllWagers()  {
-        return new ArrayList<Wager>();
+        return this.wagers;
     }
     public void CalculateResults()
     {

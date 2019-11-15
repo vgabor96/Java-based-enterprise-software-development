@@ -1,6 +1,7 @@
 package com.sportsbetting;
 
 import com.sportsbetting.builder.OutComeBuilder;
+import com.sportsbetting.builder.PlayerBuilder;
 import com.sportsbetting.domain.*;
 
 import java.math.BigDecimal;
@@ -17,13 +18,39 @@ public class View {
     }
 
     public Player readPlayerData(){
-        return new Player();
+        Scanner in = new Scanner(System.in);
+        String name;
+        int balance;
+        String currency;
+        Currency currency1;
+
+        System.out.println("What is your name?");
+        name = in.nextLine();
+        System.out.println("How much money do you have (more than 0)?");
+        balance = Integer.parseInt(in.nextLine());
+        System.out.println("What is your currency? (HUF, EUR or USD) ");
+        currency = in.nextLine();
+        if (currency.equals(Currency.EUR))
+        {
+            currency1 = Currency.EUR;
+        }
+        else if (currency.equals(Currency.USD))
+        {
+            currency1 = Currency.USD;
+        }
+        else
+        {
+            currency1 = Currency.HUF;
+        }
+        return new PlayerBuilder(name).balance(BigDecimal.valueOf(balance)).currency(currency1).build();
     }
 
     public void printWelcomeMessage(Player player){
+        System.out.println("Welcome "+player.getName()+"!");
 
     }
     public void printBalance(Player player){
+        System.out.println("Your balance is "+player.getBalance()+" "+player.getCurrency());
 
     }
     public void printOutcomeOdds(List<SportEvent> events){
@@ -44,6 +71,7 @@ public class View {
                                     +" and "+ outcomeodd.getValidUntil());
 
                             this.outComeOdds.add(outcomeodd);
+                            i++;
                         }
                     }
 
@@ -69,7 +97,7 @@ public class View {
                 {
                     return outComeOdds.get(inputInt-1);
                 }
-            } while (input.equals("q"));
+            } while (!input.equals("q"));
 
 
         }
@@ -93,8 +121,28 @@ public class View {
     }
 
     public BigDecimal readWagerAmount(){
-        return  BigDecimal.ONE;
+        System.out.println("What amount do you wish to bet on it?");
+        Scanner in = new Scanner(System.in);
+        String input;
+        input = in.nextLine();
+        int value = -1;
+
+        try{
+            value = Integer.parseInt(input);
+            if(value>=0)
+            {
+                return BigDecimal.valueOf(value);
+            }
+
+
+        }catch (NumberFormatException ex) {
+            //not integer
+            return BigDecimal.valueOf(-1);
+        }
+        //negative value
+        return  BigDecimal.valueOf(-2);
     }
+
     public void printWagerSaved(Wager wager){
 
     }

@@ -25,6 +25,7 @@ public class App {
     List<SportEvent> sportevents;
     List<OutcomeOdd> outcomeOdds;
     List<Wager> wagers;
+    OutcomeOdd selectedOutComeOdd;
     public App(SportsBettingService sportsBettingService, View view) {
         this.sportsBettingService = sportsBettingService;
         this.view = view;
@@ -49,11 +50,17 @@ public class App {
 
     void createPlayer() {
     this.player = this.view.readPlayerData();
+    this.sportsBettingService.savePlayer(this.player);
     }
 
     void doBetting() {
 
-            view.selectOutComeOdd(this.sportevents);
+            this.selectedOutComeOdd = view.selectOutComeOdd(this.sportevents);
+            if(selectedOutComeOdd != null)
+            {
+                this.WagerCreation();
+            }
+
 
     }
     void calculateResults(){
@@ -66,6 +73,33 @@ public class App {
 
     }
 
+    private void WagerCreation()
+    {
+        BigDecimal value = BigDecimal.valueOf(0);
+        boolean enoughbalance = false;
+        do {
+            value = view.readWagerAmount();
+            //not integer or negative
+            if (value.compareTo(BigDecimal.valueOf(-1)) <= 0)
+            {
+                continue;
+            }
+            if (value.compareTo(player.getBalance()) <= 0)
+            {
+                enoughbalance = true;
+
+            }
+            else
+            {
+                view.printNotEnoughBalance(this.player);
+            }
+
+
+        }while(value.compareTo(BigDecimal.valueOf(0)) <= 0 || !enoughbalance);
+
+
+    }
+
     void Initialize(){
         this.player = new Player();
         this.sportevents = new ArrayList<SportEvent>();
@@ -73,6 +107,7 @@ public class App {
         this.outcomes = new ArrayList<Outcome>();
         this.outcomeOdds = new ArrayList<OutcomeOdd>();
         this.wagers = new ArrayList<Wager>();
+        this.selectedOutComeOdd = new OutcomeOdd();
 
 
         LocalDateTime startDate =LocalDateTime.parse("2020-01-01 12:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
@@ -178,6 +213,8 @@ public class App {
         this.outcomeOdds.add(outcomeOdd_2);
         this.outcomeOdds.add(outcomeOdd_3);
         this.outcomeOdds.add(outcomeOdd_4);
+
+
 
 
     }

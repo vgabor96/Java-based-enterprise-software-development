@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d0deeca1-ec56-4f0d-8c54-453cae21abee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sportsbetting/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sportsbetting/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sportsbetting/SportsBettingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sportsbetting/SportsBettingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/sportsbetting/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sportsbetting/View.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -55,6 +57,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
