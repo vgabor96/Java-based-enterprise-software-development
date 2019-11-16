@@ -1,19 +1,10 @@
-package com.sportsbetting;
 
-import com.sportsbetting.builder.BetBuilder;
-import com.sportsbetting.builder.OutComeBuilder;
-import com.sportsbetting.builder.OutComeOddBuilder;
-import com.sportsbetting.builder.SportEventBuilder;
-import com.sportsbetting.domain.*;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+
 
 public class App {
 

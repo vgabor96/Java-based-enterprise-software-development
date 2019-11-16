@@ -1,8 +1,3 @@
-package com.sportsbetting.builder;
-
-import com.sportsbetting.domain.Outcome;
-import com.sportsbetting.domain.OutcomeOdd;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 

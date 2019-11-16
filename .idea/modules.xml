@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Java-based-enterprise-software-development.iml" filepath="$PROJECT_DIR$/Java-based-enterprise-software-development.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sportsbetting-application-app/sportsbetting-application-app.iml" filepath="$PROJECT_DIR$/sportsbetting-application-app/sportsbetting-application-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sportsbetting-application-domain/sportsbetting-application-domain.iml" filepath="$PROJECT_DIR$/sportsbetting-application-domain/sportsbetting-application-domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sportsbetting-application-maven.iml" filepath="$PROJECT_DIR$/sportsbetting-application-maven.iml" />
     </modules>
   </component>
 </project>

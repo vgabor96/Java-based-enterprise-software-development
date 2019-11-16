@@ -1,11 +1,5 @@
-package com.sportsbetting.builder;
-
-import com.sportsbetting.domain.*;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 public class PlayerBuilder {
     String name;

@@ -1,7 +1,4 @@
-package com.sportsbetting;
-
-import com.sportsbetting.builder.OutComeBuilder;
-import com.sportsbetting.builder.PlayerBuilder;
+import com.sportsbetting.domain.PlayerBuilder;
 import com.sportsbetting.domain.*;
 
 import java.math.BigDecimal;

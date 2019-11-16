@@ -1,5 +1,3 @@
-package com.sportsbetting;
-
 import com.sportsbetting.domain.Player;
 import com.sportsbetting.domain.SportEvent;
 import com.sportsbetting.domain.Wager;

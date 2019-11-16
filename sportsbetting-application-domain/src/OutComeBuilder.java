@@ -1,8 +1,3 @@
-package com.sportsbetting.builder;
-import com.sportsbetting.domain.Bet;
-import com.sportsbetting.domain.Outcome;
-import com.sportsbetting.domain.OutcomeOdd;
-
 import java.util.ArrayList;
 import java.util.List;
 
