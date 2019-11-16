@@ -1,0 +1,17 @@
+com\sportsbetting\TennisSportEvent.class
+com\sportsbetting\OutcomeOdd.class
+com\sportsbetting\Bet.class
+com\sportsbetting\BetBuilder.class
+com\sportsbetting\OutComeOddBuilder.class
+com\sportsbetting\Outcome.class
+com\sportsbetting\SportEventBuilder.class
+com\sportsbetting\OutComeBuilder.class
+com\sportsbetting\PlayerBuilder.class
+com\sportsbetting\BetType.class
+com\sportsbetting\FootballSportEvent.class
+com\sportsbetting\Result.class
+com\sportsbetting\Player.class
+com\sportsbetting\Currency.class
+com\sportsbetting\SportEvent.class
+com\sportsbetting\User.class
+com\sportsbetting\Wager.class
