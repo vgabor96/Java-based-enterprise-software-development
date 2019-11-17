@@ -7,23 +7,45 @@ import java.util.Scanner;
 
 public class View {
 
-    private List<OutcomeOdd> outComeOdds;
+    //private List<OutcomeOdd> outComeOdds;
 
     public View() {
-        this.outComeOdds = new ArrayList<OutcomeOdd>();
+       // this.outComeOdds = new ArrayList<OutcomeOdd>();
     }
 
     public Player readPlayerData(){
         Scanner in = new Scanner(System.in);
         String name;
-        int balance;
+        String sbalance;
+        int balance = 0;
         String currency;
         Currency currency1;
 
         System.out.println("What is your name?");
         name = in.nextLine();
-        System.out.println("How much money do you have (more than 0)?");
-        balance = Integer.parseInt(in.nextLine());
+        do {
+            System.out.println("How much money do you have (more than 0)?");
+
+            sbalance = in.nextLine();
+            int value = -1;
+
+            try{
+                value = Integer.parseInt(sbalance);
+                if(value>=0)
+                {
+                    balance = value;
+                }
+
+
+            }catch (NumberFormatException ex) {
+                //not integer
+                balance = -1;
+            }
+
+
+        }while(balance < 0);
+
+
         System.out.println("What is your currency? (HUF, EUR or USD) ");
         currency = in.nextLine();
         if (currency.equals("EUR"))
@@ -66,7 +88,7 @@ public class View {
                                     +", Valid between "+ outcomeodd.getValidFrom()
                                     +" and "+ outcomeodd.getValidUntil());
 
-                            this.outComeOdds.add(outcomeodd);
+                           // this.outComeOdds.add(outcomeodd);
                             i++;
                         }
                     }
@@ -82,16 +104,19 @@ public class View {
 
 
         if (events!=null && !events.isEmpty()) {
+            List<OutcomeOdd> outcomeOdds = new ArrayList<OutcomeOdd>();
             Scanner in = new Scanner(System.in);
             String input;
+            int inputInt = 0;
             do {
                 System.out.println("What are you want to bet on? (choose a number or press 'q' for quit");
                 printOutcomeOdds(events);
+                outcomeOdds = GetOutcomeOddsFromEvents(events);
                 input = in.nextLine();
-                int inputInt = selectOutComeOddInputIsTrue(input,this.outComeOdds.size());
+                inputInt = selectOutComeOddInputIsTrue(input,outcomeOdds.size());
                 if (inputInt > -1)
                 {
-                    return outComeOdds.get(inputInt-1);
+                    return outcomeOdds.get(inputInt-1);
                 }
             } while (!input.equals("q"));
 
@@ -111,11 +136,26 @@ public class View {
 
 
         }catch (NumberFormatException ex) {
-
+            return -1;
         }
-        return value;
+        return -1;
     }
 
+    private List<OutcomeOdd>GetOutcomeOddsFromEvents(List<SportEvent> events) {
+        List<OutcomeOdd> outcomeOdds = new ArrayList<>();
+        for (SportEvent event : events) {
+            for (Bet bet : event.getBets()) {
+                for (Outcome outcome : bet.getOutcomes()) {
+                    for (OutcomeOdd outcomeodd : outcome.getOutcomeOdds()) {
+
+                        outcomeOdds.add(outcomeodd);
+                    }
+
+                }
+            }
+        }
+        return outcomeOdds;
+    }
     public BigDecimal readWagerAmount(){
         System.out.println("What amount do you wish to bet on it?");
         Scanner in = new Scanner(System.in);

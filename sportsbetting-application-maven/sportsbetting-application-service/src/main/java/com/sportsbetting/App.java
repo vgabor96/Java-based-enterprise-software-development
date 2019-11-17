@@ -85,7 +85,7 @@ public class App {
             {
                 continue;
             }
-            if (value.compareTo(player.getBalance()) <= 0)
+            if (value.compareTo(player.getBalance()) <= 0 && player.getBalance().compareTo(BigDecimal.valueOf(0)) >0)
             {
                 enoughbalance = true;
                 player.setBalance(player.getBalance().subtract(value));
@@ -105,10 +105,11 @@ public class App {
             else
             {
                 view.printNotEnoughBalance(this.player);
+
             }
 
 
-        }while(value.compareTo(BigDecimal.valueOf(0)) <= 0 || !enoughbalance);
+        }while( player.getBalance().compareTo(BigDecimal.valueOf(0)) >0 && (value.compareTo(BigDecimal.valueOf(0)) <= 0 || !enoughbalance));
 
 
     }
