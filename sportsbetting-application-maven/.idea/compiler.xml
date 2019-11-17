@@ -7,13 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="sportsbetting-application-domain" />
-        <module name="sportsbetting-application-app" />
+        <module name="sportsbetting-application-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="sportsbetting-application-app" target="10" />
       <module name="sportsbetting-application-domain" target="10" />
       <module name="sportsbetting-application-maven" target="10" />
+      <module name="sportsbetting-application-service" target="10" />
     </bytecodeTargetLevel>
   </component>
 </project>

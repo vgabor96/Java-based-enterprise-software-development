@@ -18,7 +18,7 @@
 
     <modules>
         <module>sportsbetting-application-domain</module>
-        <module>sportsbetting-application-app</module>
+        <module>sportsbetting-application-service</module>
     </modules>
 
 </project>
