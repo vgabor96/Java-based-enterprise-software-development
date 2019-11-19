@@ -81,11 +81,11 @@ public class App {
         do {
             value = view.readWagerAmount();
             //not integer or negative
-            if (value.compareTo(BigDecimal.valueOf(-1)) <= 0)
+            if (value.compareTo(BigDecimal.valueOf(-1)) <=0)
             {
                 continue;
             }
-            if (value.compareTo(player.getBalance()) <= 0 && player.getBalance().compareTo(BigDecimal.valueOf(0)) >0)
+            if (value.compareTo(player.getBalance()) <= 0 && player.getBalance().compareTo(BigDecimal.valueOf(0)) >0 && !(value.compareTo(BigDecimal.ZERO) == 0))
             {
                 enoughbalance = true;
                 player.setBalance(player.getBalance().subtract(value));
@@ -102,10 +102,14 @@ public class App {
                 view.printBalance(this.player);
 
             }
-            else
-            {
-                view.printNotEnoughBalance(this.player);
 
+            else if((value.compareTo(BigDecimal.ZERO) == 0))
+            {
+                    break;
+            }
+
+            else {
+                    view.printNotEnoughBalance(this.player);
             }
 
 

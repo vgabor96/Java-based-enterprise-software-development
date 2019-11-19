@@ -88,7 +88,7 @@ public class View {
                                     +", Valid between "+ outcomeodd.getValidFrom()
                                     +" and "+ outcomeodd.getValidUntil());
 
-                           // this.outComeOdds.add(outcomeodd);
+
                             i++;
                         }
                     }

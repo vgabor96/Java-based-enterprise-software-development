@@ -44,7 +44,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>com.example.sportsbetting.App</mainClass>
+                            <mainClass>com.example.sportsbetting.AppSpring</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

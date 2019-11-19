@@ -1,3 +1,5 @@
 com\example\sportsbetting\App.class
 com\example\sportsbetting\SportsBettingService.class
 com\example\sportsbetting\View.class
+com\example\sportsbetting\config\AppConfig.class
+com\example\sportsbetting\AppSpring.class

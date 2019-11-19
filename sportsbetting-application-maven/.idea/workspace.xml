@@ -3,8 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="d0deeca1-ec56-4f0d-8c54-453cae21abee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/AppSpring.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/AppSpring.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +69,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="com.sportsbetting.App" />
+      <option name="MAIN_CLASS_NAME" value="com.example.sportsbetting.AppSpring" />
       <module name="sportsbetting-application-service" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
@@ -106,16 +111,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/View.java</url>
-          <line>130</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
