@@ -1,4 +1,4 @@
-package com.sportsbetting;
+package com.example.sportsbetting;
 public enum BetType {
     WINNER,
     GOALS,

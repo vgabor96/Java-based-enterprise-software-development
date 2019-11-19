@@ -1,4 +1,4 @@
-package com.sportsbetting;
+package com.example.sportsbetting;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

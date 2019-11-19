@@ -1,4 +1,4 @@
-package com.sportsbetting;
+package com.example.sportsbetting;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

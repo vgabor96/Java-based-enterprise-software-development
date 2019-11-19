@@ -35,7 +35,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>com.sportsbetting.App</mainClass>
+                            <mainClass>com.example.sportsbetting.App</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
