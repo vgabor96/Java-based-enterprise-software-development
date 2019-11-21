@@ -2,20 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0deeca1-ec56-4f0d-8c54-453cae21abee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_inject_javax_inject_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/config/MessageSourceConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/config/ViewConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/sportsbetting-application-domain.iml" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/sportsbetting-application-domain.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sportsbetting-application-maven.iml" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-maven.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/sportsbetting-application-service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/sportsbetting-application-service.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/config/AppConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/config/ViewConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/config/ViewConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/src/main/resources/messages/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/src/main/resources/messages/messages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/src/main/resources/messages/messages_hu.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/src/main/resources/messages/messages_hu.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/target/classes/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/target/classes/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/target/classes/messages/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/target/classes/messages/messages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/target/classes/messages/messages_hu.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/target/classes/messages/messages_hu.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

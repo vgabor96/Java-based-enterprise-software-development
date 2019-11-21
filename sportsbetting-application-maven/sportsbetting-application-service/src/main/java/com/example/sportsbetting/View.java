@@ -7,12 +7,14 @@ import org.springframework.context.MessageSource;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class View {
 
     private  static final Logger LOG = LoggerFactory.getLogger(View.class);
     //private List<OutcomeOdd> outComeOdds;
+    public Locale locale;
     public MessageSource messageSource;
     public View() {
        // this.outComeOdds = new ArrayList<OutcomeOdd>();
@@ -27,7 +29,8 @@ public class View {
         Currency currency1;
 
        // System.out.println("What is your name?");
-        LOG.info("What is your name?");
+        //LOG.info("What is your name?");
+        LOG.info(messageSource.getMessage("welcome.message",null,locale));
 
         name = in.nextLine();
         do {

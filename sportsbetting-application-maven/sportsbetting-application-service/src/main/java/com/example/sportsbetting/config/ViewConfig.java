@@ -29,6 +29,7 @@ public class ViewConfig
     public View view()
     {
         View view = new View();
+        view.locale = locale;
         view.messageSource = messageSource;
         return view;
     }
