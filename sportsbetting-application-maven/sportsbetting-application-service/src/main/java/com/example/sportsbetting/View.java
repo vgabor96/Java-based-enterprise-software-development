@@ -1,5 +1,8 @@
 package com.example.sportsbetting;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +10,7 @@ import java.util.Scanner;
 
 public class View {
 
+    private  static final Logger LOG = LoggerFactory.getLogger(View.class);
     //private List<OutcomeOdd> outComeOdds;
 
     public View() {
@@ -21,11 +25,12 @@ public class View {
         String currency;
         Currency currency1;
 
-        System.out.println("What is your name?");
+       // System.out.println("What is your name?");
+        LOG.info("What is your name?");
         name = in.nextLine();
         do {
-            System.out.println("How much money do you have (more than 0)?");
-
+            //System.out.println("How much money do you have (more than 0)?");
+            LOG.info("How much money do you have (more than 0)?");
             sbalance = in.nextLine();
             int value = -1;
 
@@ -46,7 +51,9 @@ public class View {
         }while(balance < 0);
 
 
-        System.out.println("What is your currency? (HUF, EUR or USD) ");
+        //System.out.println("What is your currency? (HUF, EUR or USD) ");
+        LOG.info("What is your currency? (HUF, EUR or USD) ");
+
         currency = in.nextLine();
         if (currency.equals("EUR"))
         {
@@ -64,11 +71,13 @@ public class View {
     }
 
     public void printWelcomeMessage(Player player){
-        System.out.println("Welcome "+player.getName()+"!");
+        //System.out.println("Welcome "+player.getName()+"!");
+        LOG.info("Welcome "+player.getName()+"!");
 
     }
     public void printBalance(Player player){
-        System.out.println("Your balance is "+player.getBalance()+" "+player.getCurrency());
+        //System.out.println("Your balance is "+player.getBalance()+" "+player.getCurrency());
+        LOG.info("Your balance is "+player.getBalance()+" "+player.getCurrency());
 
     }
     public void printOutcomeOdds(List<SportEvent> events){
@@ -80,14 +89,21 @@ public class View {
                 for (Bet bet : event.getBets()) {
                     for (Outcome outcome : bet.getOutcomes()){
                         for (OutcomeOdd outcomeodd : outcome.getOutcomeOdds()){
-                            System.out.println(i +": Sport Event: "+event.getTitle()
+                            /*System.out.println(i +": Sport Event: "+event.getTitle()
                                     +" (start: "+event.getStartDate()
                                     +"), Bet: "+bet.getDescription()
                                     +", OutCome: "+outcome.getDescription()
                                     +", Actual odd: "+outcomeodd.getValue()
                                     +", Valid between "+ outcomeodd.getValidFrom()
                                     +" and "+ outcomeodd.getValidUntil());
-
+                            */
+                            LOG.info(i +": Sport Event: "+event.getTitle()
+                                    +" (start: "+event.getStartDate()
+                                    +"), Bet: "+bet.getDescription()
+                                    +", OutCome: "+outcome.getDescription()
+                                    +", Actual odd: "+outcomeodd.getValue()
+                                    +", Valid between "+ outcomeodd.getValidFrom()
+                                    +" and "+ outcomeodd.getValidUntil());
 
                             i++;
                         }
@@ -109,7 +125,8 @@ public class View {
             String input;
             int inputInt = 0;
             do {
-                System.out.println("What are you want to bet on? (choose a number or press 'q' for quit");
+                //System.out.println("What are you want to bet on? (choose a number or press 'q' for quit");
+                LOG.info("What are you want to bet on? (choose a number or press 'q' for quit");
                 printOutcomeOdds(events);
                 outcomeOdds = GetOutcomeOddsFromEvents(events);
                 input = in.nextLine();
@@ -157,7 +174,8 @@ public class View {
         return outcomeOdds;
     }
     public BigDecimal readWagerAmount(){
-        System.out.println("What amount do you wish to bet on it?");
+        //System.out.println("What amount do you wish to bet on it?");
+        LOG.info("What amount do you wish to bet on it?");
         Scanner in = new Scanner(System.in);
         String input;
         input = in.nextLine();
@@ -180,27 +198,48 @@ public class View {
     }
 
     public void printWagerSaved(Wager wager){
-        System.out.println("Wager '"+wager.getOdd().getOutcome().getBet().getDescription()
+        /*System.out.println("Wager '"+wager.getOdd().getOutcome().getBet().getDescription()
+                +" = "+wager.getOdd().getOutcome().getDescription()
+                +"' of "+wager.getOdd().getOutcome().getBet().getEvent().getTitle()
+                +" [odd: "+wager.getOdd().getValue()
+                +", amount: "+wager.getAmount()+"] saved!");
+
+         */
+        LOG.info("Wager '"+wager.getOdd().getOutcome().getBet().getDescription()
                 +" = "+wager.getOdd().getOutcome().getDescription()
                 +"' of "+wager.getOdd().getOutcome().getBet().getEvent().getTitle()
                 +" [odd: "+wager.getOdd().getValue()
                 +", amount: "+wager.getAmount()+"] saved!");
     }
     public void printNotEnoughBalance(Player player){
-            System.out.println(" You don't have enough money, your balance is "+player.getBalance()+" "+player.getCurrency());
+            //System.out.println(" You don't have enough money, your balance is "+player.getBalance()+" "+player.getCurrency());
+        LOG.info(" You don't have enough money, your balance is "+player.getBalance()+" "+player.getCurrency());
     }
     public void printResults(Player player, List<Wager> wagers){
         if (wagers != null && wagers.size()> 0 && player!= null)
         {
-            System.out.println("Results:");
+            /*System.out.println("Results:");*/
+            LOG.info("Results:");
+
             for ( Wager wager: wagers ){
+                /*
                 System.out.println("Wager '"+wager.getOdd().getOutcome().getBet().getDescription()
+                        +" = "+wager.getOdd().getOutcome().getDescription()
+                        +"' of "+wager.getOdd().getOutcome().getBet().getEvent().getTitle()
+                        +" [odd: "+wager.getOdd().getValue()
+                        +", amount: "+wager.getAmount()+"], win: "+wager.isWin());*/
+                LOG.info("Wager '"+wager.getOdd().getOutcome().getBet().getDescription()
                         +" = "+wager.getOdd().getOutcome().getDescription()
                         +"' of "+wager.getOdd().getOutcome().getBet().getEvent().getTitle()
                         +" [odd: "+wager.getOdd().getValue()
                         +", amount: "+wager.getAmount()+"], win: "+wager.isWin());
             }
-            System.out.println("Your new balance is "+player.getBalance()+ " "+player.getCurrency());
+
+
+
+           /* System.out.println("Your new balance is "+player.getBalance()+ " "+player.getCurrency());*/
+            LOG.info("Your new balance is "+player.getBalance()+ " "+player.getCurrency());
+
         }
 
     }

@@ -2,10 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0deeca1-ec56-4f0d-8c54-453cae21abee" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jcl_over_slf4j_1_7_25.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sportsbetting-application-service/src/main/resources/logback.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/sportsbetting-application-domain.iml" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/sportsbetting-application-domain.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-maven.iml" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-maven.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/sportsbetting-application-service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/sportsbetting-application-service.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/View.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
@@ -44,13 +54,16 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/sportsbetting-application-service/src/main" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\loahc\Documents\GitHub\Java-based-enterprise-software-development\sportsbetting-application-maven\sportsbetting-application-service\src\main" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\loahc\Documents\GitHub\sportsbetting-application-maven" />
     </key>
