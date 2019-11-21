@@ -2,6 +2,7 @@ package com.example.sportsbetting;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.MessageSource;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ public class View {
 
     private  static final Logger LOG = LoggerFactory.getLogger(View.class);
     //private List<OutcomeOdd> outComeOdds;
-
+    public MessageSource messageSource;
     public View() {
        // this.outComeOdds = new ArrayList<OutcomeOdd>();
     }
