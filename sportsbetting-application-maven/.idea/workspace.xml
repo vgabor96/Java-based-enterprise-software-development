@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0deeca1-ec56-4f0d-8c54-453cae21abee" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/config/ViewConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/config/ViewConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/src/main/resources/messages/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/src/main/resources/messages/messages.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/src/main/resources/messages/messages_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/src/main/resources/messages/messages_en.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/src/main/resources/messages/messages_hu.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/src/main/resources/messages/messages_hu.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/target/classes/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/target/classes/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/target/classes/messages/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/target/classes/messages/messages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/target/classes/messages/messages_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/target/classes/messages/messages_en.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/target/classes/messages/messages_hu.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/target/classes/messages/messages_hu.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/target/maven-archiver/pom.properties" afterDir="false" />
     </list>
