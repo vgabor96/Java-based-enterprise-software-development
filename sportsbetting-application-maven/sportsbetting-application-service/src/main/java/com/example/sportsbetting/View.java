@@ -27,6 +27,7 @@ public class View {
 
        // System.out.println("What is your name?");
         LOG.info("What is your name?");
+
         name = in.nextLine();
         do {
             //System.out.println("How much money do you have (more than 0)?");
