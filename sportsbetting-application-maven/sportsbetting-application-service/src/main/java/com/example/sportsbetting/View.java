@@ -234,7 +234,8 @@ public class View {
         {
             /*System.out.println("Results:");*/
             LOG.info(messageSource.getMessage("printResults.Results.message",null,locale));
-
+            boolean iswin = false;
+            String win = "";
             for ( Wager wager: wagers ){
                 /*
                 System.out.println("Wager '"+wager.getOdd().getOutcome().getBet().getDescription()
@@ -242,13 +243,20 @@ public class View {
                         +"' of "+wager.getOdd().getOutcome().getBet().getEvent().getTitle()
                         +" [odd: "+wager.getOdd().getValue()
                         +", amount: "+wager.getAmount()+"], win: "+wager.isWin());*/
+             iswin = wager.isWin();
+                if (iswin){
+                    win = messageSource.getMessage("printTrue",null,locale);
+                }
+                else{
+                    win = messageSource.getMessage("printFalse",null,locale);
+                }
                 LOG.info(messageSource.getMessage("printResults.Wager.message",new Object[]{
                         wager.getOdd().getOutcome().getBet().getDescription(),
                         wager.getOdd().getOutcome().getDescription(),
                         wager.getOdd().getOutcome().getBet().getEvent().getTitle(),
                         wager.getOdd().getValue(),
                         wager.getAmount(),
-                        wager.isWin()
+                        win
                 },locale));
             }
 

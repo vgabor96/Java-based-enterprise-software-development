@@ -13,6 +13,7 @@ public class MessageSourceConfig {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
         messageSource.addBasenames("messages/messages");
         messageSource.setDefaultEncoding("UTF-8");
+        messageSource.setAlwaysUseMessageFormat(true);
         return messageSource;
     }
 }
