@@ -1,13 +1,24 @@
 package com.example.sportsbetting;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
 public class Outcome {
     @Id
     @GeneratedValue
     private int id;
+
+    String description;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "bet_id")
+    Bet bet;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Outcome_id")
+    List<OutcomeOdd> outcomeOdds;
+
     public int getId() {
         return id;
     }
@@ -15,9 +26,6 @@ public class Outcome {
     public void setId(int id) {
         this.id = id;
     }
-    String description;
-    Bet bet;
-    List<OutcomeOdd> outcomeOdds;
 
     public String getDescription() {
         return description;
