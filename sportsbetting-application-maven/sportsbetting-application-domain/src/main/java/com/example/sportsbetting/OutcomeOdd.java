@@ -1,8 +1,7 @@
 
 package com.example.sportsbetting;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -10,6 +9,18 @@ public class OutcomeOdd {
     @Id
     @GeneratedValue
     private int id;
+
+    BigDecimal value;
+
+    @Temporal(TemporalType.DATE)
+    LocalDateTime validFrom;
+    @Temporal(TemporalType.DATE)
+    LocalDateTime validUntil;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Outcome_id")
+    Outcome outcome;
+
     public int getId() {
         return id;
     }
@@ -17,10 +28,6 @@ public class OutcomeOdd {
     public void setId(int id) {
         this.id = id;
     }
-    BigDecimal value;
-    LocalDateTime validFrom;
-    LocalDateTime validUntil;
-    Outcome outcome;
 
     public BigDecimal getValue() {
         return value;
