@@ -1,26 +1,35 @@
 package com.example.sportsbetting;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Entity
 public class SportEvent {
     @Id
     @GeneratedValue
     private int id;
-    public int getId() {
-        return id;
-    }
+
+
+    String title;
+    @Temporal(TemporalType.DATE)
+    LocalDateTime startDate;
+    @Temporal(TemporalType.DATE)
+    LocalDateTime endDate;
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "sportevent_id")
+    List<Bet> bets;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "result_id")
+    Result result;
 
     public void setId(int id) {
         this.id = id;
     }
-    String title;
-    LocalDateTime startDate;
-    LocalDateTime endDate;
-    List<Bet> bets;
-    Result result;
+
+    public int getId() {
+        return id;
+    }
 
     public String getTitle() {
         return title;
