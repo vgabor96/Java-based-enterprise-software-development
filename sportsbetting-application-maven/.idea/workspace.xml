@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d0deeca1-ec56-4f0d-8c54-453cae21abee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/OutcomeOdd.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/OutcomeOdd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/Result.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
