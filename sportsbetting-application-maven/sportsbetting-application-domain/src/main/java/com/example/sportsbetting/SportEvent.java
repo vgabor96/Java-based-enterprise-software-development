@@ -1,9 +1,21 @@
 package com.example.sportsbetting;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.time.LocalDateTime;
 import java.util.List;
 
 public class SportEvent {
+    @Id
+    @GeneratedValue
+    private int id;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     String title;
     LocalDateTime startDate;
     LocalDateTime endDate;

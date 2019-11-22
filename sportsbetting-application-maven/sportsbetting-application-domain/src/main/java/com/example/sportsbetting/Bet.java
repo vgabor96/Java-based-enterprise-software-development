@@ -1,12 +1,33 @@
 package com.example.sportsbetting;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
 public class Bet {
+    @Id
+    @GeneratedValue
+    private int id;
+
     String description;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "event_id")
     SportEvent event;
+
+    @Enumerated(EnumType.STRING)
     BetType type;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "bet_id")
     List<Outcome> outcomes;
+
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getDescription() {
         return description;

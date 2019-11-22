@@ -1,10 +1,22 @@
 
 package com.example.sportsbetting;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public class OutcomeOdd {
+    @Id
+    @GeneratedValue
+    private int id;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     BigDecimal value;
     LocalDateTime validFrom;
     LocalDateTime validUntil;

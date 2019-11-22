@@ -1,8 +1,20 @@
 package com.example.sportsbetting;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.List;
 
 public class Outcome {
+    @Id
+    @GeneratedValue
+    private int id;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     String description;
     Bet bet;
     List<OutcomeOdd> outcomeOdds;

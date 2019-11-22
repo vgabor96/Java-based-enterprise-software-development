@@ -3,9 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="d0deeca1-ec56-4f0d-8c54-453cae21abee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/sportsbetting-application-domain.iml" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/sportsbetting-application-domain.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/Bet.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/Bet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/Outcome.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/Outcome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/OutcomeOdd.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/OutcomeOdd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/Result.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/SportEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/SportEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/Wager.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/Wager.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
