@@ -1,13 +1,28 @@
 package com.example.sportsbetting;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+@Entity
 public class Wager {
     @Id
     @GeneratedValue
     private int id;
+
+    BigDecimal amount;
+    @Temporal(TemporalType.DATE)
+    LocalDateTime timestampCreated;
+    boolean processed;
+    boolean win;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "wager_id")
+    OutcomeOdd odd;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "wager_id")
+    Player player;
+    @Enumerated(EnumType.STRING)
+    Currency currency;
+
     public int getId() {
         return id;
     }
@@ -15,14 +30,6 @@ public class Wager {
     public void setId(int id) {
         this.id = id;
     }
-    BigDecimal amount;
-    LocalDateTime timestampCreated;
-    boolean processed;
-    boolean win;
-    OutcomeOdd odd;
-    Player player;
-    Currency currency;
-
     public BigDecimal getAmount() {
         return amount;
     }
