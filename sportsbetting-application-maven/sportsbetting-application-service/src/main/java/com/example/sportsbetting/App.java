@@ -1,5 +1,10 @@
 package com.example.sportsbetting;
 
+import com.example.sportsbetting.builders.BetBuilder;
+import com.example.sportsbetting.builders.OutComeBuilder;
+import com.example.sportsbetting.builders.OutComeOddBuilder;
+import com.example.sportsbetting.builders.SportEventBuilder;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

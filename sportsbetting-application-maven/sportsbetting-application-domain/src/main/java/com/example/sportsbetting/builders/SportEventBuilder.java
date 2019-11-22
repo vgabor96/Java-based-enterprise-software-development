@@ -1,4 +1,8 @@
-package com.example.sportsbetting;
+package com.example.sportsbetting.builders;
+
+import com.example.sportsbetting.Bet;
+import com.example.sportsbetting.Result;
+import com.example.sportsbetting.SportEvent;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

@@ -1,4 +1,8 @@
-package com.example.sportsbetting;
+package com.example.sportsbetting.builders;
+
+import com.example.sportsbetting.Bet;
+import com.example.sportsbetting.Outcome;
+import com.example.sportsbetting.OutcomeOdd;
 
 import java.util.ArrayList;
 import java.util.List;

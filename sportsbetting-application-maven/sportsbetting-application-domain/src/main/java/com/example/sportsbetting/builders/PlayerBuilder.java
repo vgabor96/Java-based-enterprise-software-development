@@ -1,4 +1,7 @@
-package com.example.sportsbetting;
+package com.example.sportsbetting.builders;
+
+import com.example.sportsbetting.Currency;
+import com.example.sportsbetting.Player;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

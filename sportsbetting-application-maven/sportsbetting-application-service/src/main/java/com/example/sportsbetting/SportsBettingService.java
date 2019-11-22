@@ -32,8 +32,7 @@ public class SportsBettingService {
     public List<Wager>findAllWagers()  {
         return this.wagers;
     }
-    public void CalculateResults()
-    {
+    public void CalculateResults() {
         if (wagers != null && wagers.size()> 0 && player!= null) {
             int randomwinnerwage = r.nextInt(this.wagers.size());
             this.wagers.get(randomwinnerwage).setWin(true);
