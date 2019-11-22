@@ -1,7 +1,8 @@
 com\example\sportsbetting\App.class
+com\example\sportsbetting\config\JpaConfig.class
+com\example\sportsbetting\AppSpring.class
 com\example\sportsbetting\SportsBettingService.class
 com\example\sportsbetting\config\AppConfig.class
 com\example\sportsbetting\config\MessageSourceConfig.class
 com\example\sportsbetting\View.class
 com\example\sportsbetting\config\ViewConfig.class
-com\example\sportsbetting\AppSpring.class
