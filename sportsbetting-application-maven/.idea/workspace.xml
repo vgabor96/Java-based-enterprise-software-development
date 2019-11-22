@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0deeca1-ec56-4f0d-8c54-453cae21abee" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_persistence_javax_persistence_api_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjrt_1_9_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_26.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_2_1_10_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_2_1_10_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_1_9_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_5_1_9_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_1_9_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/config/JpaConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/sportsbetting-application-service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/sportsbetting-application-service.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/target/maven-archiver/pom.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,11 +57,11 @@
     <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\loahc\Documents\GitHub\Java-based-enterprise-software-development\sportsbetting-application-maven\sportsbetting-application-service\src\main" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\loahc\Documents\GitHub\sportsbetting-application-maven" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\loahc\Documents\GitHub\Java-based-enterprise-software-development\sportsbetting-application-maven\sportsbetting-application-service\src\main" />
     </key>
   </component>
   <component name="RunDashboard">
