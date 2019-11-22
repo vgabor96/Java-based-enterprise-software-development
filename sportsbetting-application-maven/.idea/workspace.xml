@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0deeca1-ec56-4f0d-8c54-453cae21abee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/target/maven-archiver/pom.properties" afterDir="false" />
     </list>
