@@ -5,6 +5,7 @@ import com.example.sportsbetting.config.AppConfig;
 import com.example.sportsbetting.config.JpaConfig;
 import com.example.sportsbetting.domain.*;
 import com.example.sportsbetting.repository.BetRepository;
+import com.example.sportsbetting.repository.PlayerRepository;
 import org.hibernate.Transaction;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -34,13 +35,15 @@ public class AppSpring {
         try (ConfigurableApplicationContext appContext = new AnnotationConfigApplicationContext(AppConfig.class, JpaConfig.class)){
             App app = appContext.getBean(App.class);
             testJpa(appContext);
+            testSpringData(appContext);
             app.play();
         }
     }
 
     private static void testSpringData(ApplicationContext context){
-        BetRepository br =  context.getBean(BetRepository.class);
-        br.count();
+        PlayerRepository pr =  context.getBean(PlayerRepository.class);
+        String name = pr.findById(1).get().getName();
+        System.out.println("NÉV: "+name);
 
     }
     private static void testJpa(ApplicationContext context){
