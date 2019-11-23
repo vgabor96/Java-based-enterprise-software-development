@@ -153,8 +153,7 @@ public class View {
         return null;
     }
 
-    private int selectOutComeOddInputIsTrue(String input,int outcomeOddsSize)
-    {
+    private int selectOutComeOddInputIsTrue(String input,int outcomeOddsSize) {
         int value = -1;
         try{
             value = Integer.parseInt(input);

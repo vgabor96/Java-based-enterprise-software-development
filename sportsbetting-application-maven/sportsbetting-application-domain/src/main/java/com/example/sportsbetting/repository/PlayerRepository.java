@@ -1,4 +1,7 @@
 package com.example.sportsbetting.repository;
 
-public class PlayerRepository {
+import com.example.sportsbetting.domain.Player;
+import org.springframework.data.repository.CrudRepository;
+
+public interface PlayerRepository extends CrudRepository<Player,Integer> {
 }

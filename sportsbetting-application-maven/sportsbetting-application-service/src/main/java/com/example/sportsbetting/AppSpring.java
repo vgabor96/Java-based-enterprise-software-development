@@ -5,6 +5,7 @@ import com.example.sportsbetting.config.AppConfig;
 import com.example.sportsbetting.config.JpaConfig;
 import com.example.sportsbetting.domain.*;
 import com.example.sportsbetting.repository.BetRepository;
+import org.hibernate.Transaction;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -50,6 +51,7 @@ public class AppSpring {
         tr.begin();
         Player player = new PlayerBuilder("Józsi").build();
         em.persist(player);
+        tr.commit();
        /* this.player = new Player();
         this.sportevents = sportsBettingService.findAllSportEvents();
         this.bets = new ArrayList<Bet>();
@@ -176,7 +178,7 @@ public class AppSpring {
         */
 
 
-        tr.commit();
+
         em.close();
     }
 

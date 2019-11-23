@@ -1,4 +1,7 @@
 package com.example.sportsbetting.repository;
 
-public class OutComeRepository {
+import com.example.sportsbetting.domain.Outcome;
+import org.springframework.data.repository.CrudRepository;
+
+public interface OutComeRepository extends CrudRepository<Outcome,Integer> {
 }
