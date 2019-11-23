@@ -15,8 +15,7 @@ import javax.inject.Inject;
 import java.util.Locale;
 
 @Configuration
-@Import({SportsBettingService.class, ViewConfig.class})
-@PropertySource(value = {"classpath:config.properties"},encoding = "UTF-8")
+@Import({SportsBettingService.class, ViewConfig.class, JpaConfig.class})
 public class AppConfig {
 
     @Inject
@@ -24,6 +23,7 @@ public class AppConfig {
 
     @Inject
     private View view;
+
 
     public AppConfig() {
     }

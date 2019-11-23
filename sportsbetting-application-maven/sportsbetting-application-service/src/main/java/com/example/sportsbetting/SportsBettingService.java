@@ -1,5 +1,9 @@
 package com.example.sportsbetting;
 
+import com.example.sportsbetting.domain.Player;
+import com.example.sportsbetting.domain.SportEvent;
+import com.example.sportsbetting.domain.Wager;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;

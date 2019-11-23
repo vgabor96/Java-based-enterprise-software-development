@@ -1,5 +1,5 @@
 
-package com.example.sportsbetting;
+package com.example.sportsbetting.domain;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -13,9 +13,9 @@ public class OutcomeOdd {
 
     BigDecimal value;
 
-    @Temporal(TemporalType.DATE)
+    //@Temporal(TemporalType.TIME)
     LocalDateTime validFrom;
-    @Temporal(TemporalType.DATE)
+    //@Temporal(TemporalType.TIME)
     LocalDateTime validUntil;
 
     @OneToOne(fetch = FetchType.LAZY)

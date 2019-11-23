@@ -1,4 +1,4 @@
-package com.example.sportsbetting;
+package com.example.sportsbetting.domain;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -10,15 +10,15 @@ public class Wager {
     private int id;
 
     BigDecimal amount;
-    @Temporal(TemporalType.DATE)
+    //@Temporal(TemporalType.TIME)
     LocalDateTime timestampCreated;
     boolean processed;
     boolean win;
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "wager_id")
+    @JoinColumn(name = "wager_outcomeOdd_id")
     OutcomeOdd odd;
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "wager_id")
+    @JoinColumn(name = "wager_player_id")
     Player player;
     @Enumerated(EnumType.STRING)
     Currency currency;

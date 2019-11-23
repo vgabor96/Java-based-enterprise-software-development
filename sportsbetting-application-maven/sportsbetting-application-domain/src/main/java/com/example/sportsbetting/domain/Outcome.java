@@ -1,4 +1,4 @@
-package com.example.sportsbetting;
+package com.example.sportsbetting.domain;
 
 import javax.persistence.*;
 import java.util.List;

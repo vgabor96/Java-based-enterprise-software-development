@@ -1,4 +1,4 @@
-package com.example.sportsbetting;
+package com.example.sportsbetting.domain;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -12,9 +12,9 @@ public class SportEvent {
 
 
     String title;
-    @Temporal(TemporalType.DATE)
+    //@Temporal(TemporalType.TIME)
     LocalDateTime startDate;
-    @Temporal(TemporalType.DATE)
+    //@Temporal(TemporalType.TIME)
     LocalDateTime endDate;
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "sportevent_id")

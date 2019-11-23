@@ -1,9 +1,10 @@
 package com.example.sportsbetting;
 
-import com.example.sportsbetting.builders.BetBuilder;
-import com.example.sportsbetting.builders.OutComeBuilder;
-import com.example.sportsbetting.builders.OutComeOddBuilder;
-import com.example.sportsbetting.builders.SportEventBuilder;
+import com.example.sportsbetting.builder.BetBuilder;
+import com.example.sportsbetting.builder.OutComeBuilder;
+import com.example.sportsbetting.builder.OutComeOddBuilder;
+import com.example.sportsbetting.builder.SportEventBuilder;
+import com.example.sportsbetting.domain.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

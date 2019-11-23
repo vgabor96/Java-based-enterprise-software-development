@@ -1,6 +1,7 @@
 package com.example.sportsbetting;
 
-import com.example.sportsbetting.builders.PlayerBuilder;
+import com.example.sportsbetting.builder.PlayerBuilder;
+import com.example.sportsbetting.domain.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;

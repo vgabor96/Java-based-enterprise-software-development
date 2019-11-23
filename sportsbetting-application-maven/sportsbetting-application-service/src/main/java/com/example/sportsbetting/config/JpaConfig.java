@@ -22,7 +22,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableJpaRepositories(basePackages = "com.example.sportsbetting.repository")
 public class JpaConfig {
 
-    private static String dbUrl = "jdbc:mysql://localhost/sportsbetting_varaljai_gabor?serverTimezone=Europe/Budapest";
+    private static String dbUrl = "jdbc:mysql://localhost:3306/sportsbetting_varaljai_gabor";//?serverTimezone=Europe/Budapest";
     private static String username = "root";
     private static String password = "root";
 

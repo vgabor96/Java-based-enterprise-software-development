@@ -1,4 +1,4 @@
-package com.example.sportsbetting;
+package com.example.sportsbetting.domain;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -6,14 +6,14 @@ import java.time.LocalDate;
 
 @Entity
 public class Player {
-    
+
     @Id
     @GeneratedValue
     private int id;
     String name;
     Integer accountNumber;
     BigDecimal balance;
-    @Temporal(TemporalType.DATE)
+    //@Temporal(TemporalType.DATE)
     LocalDate birth;
     @Enumerated(EnumType.STRING)
     Currency currency;
