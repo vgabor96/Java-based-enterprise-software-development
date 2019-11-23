@@ -34,6 +34,7 @@ public class AppSpring {
     {
         try (ConfigurableApplicationContext appContext = new AnnotationConfigApplicationContext(AppConfig.class, JpaConfig.class)){
             App app = appContext.getBean(App.class);
+            app.sportsBettingService.setRepositories(appContext);
             testJpa(appContext);
             testSpringData(appContext);
             app.play();

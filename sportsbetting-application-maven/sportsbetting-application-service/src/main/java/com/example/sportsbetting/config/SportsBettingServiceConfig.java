@@ -3,36 +3,30 @@ package com.example.sportsbetting.config;
 import com.example.sportsbetting.App;
 import com.example.sportsbetting.SportsBettingService;
 import com.example.sportsbetting.View;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.MessageSource;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-
 import org.springframework.context.annotation.PropertySource;
 
 import javax.inject.Inject;
 import java.util.Locale;
 
 @Configuration
-@Import({SportsBettingServiceConfig.class, ViewConfig.class, JpaConfig.class})
-public class AppConfig {
+//@Import(JpaConfig.class)
+public class SportsBettingServiceConfig
+{
 
-    @Inject JpaConfig jpaconfig;
-
-    @Inject
-    private SportsBettingService sportsBettingService;
-
-    @Inject
-    private View view;
-
-
-    public AppConfig() {
-    }
 
     @Bean
-   public App app()
+    public SportsBettingService sportsBettingService()
     {
-        return new App(sportsBettingService,view);
+        SportsBettingService sportsBettingService = new SportsBettingService();
+
+
+        return sportsBettingService;
     }
 }

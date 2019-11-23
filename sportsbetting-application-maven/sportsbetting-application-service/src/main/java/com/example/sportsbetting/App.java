@@ -4,6 +4,7 @@ import com.example.sportsbetting.builder.BetBuilder;
 import com.example.sportsbetting.builder.OutComeBuilder;
 import com.example.sportsbetting.builder.OutComeOddBuilder;
 import com.example.sportsbetting.builder.SportEventBuilder;
+import com.example.sportsbetting.config.JpaConfig;
 import com.example.sportsbetting.domain.*;
 
 import java.math.BigDecimal;
@@ -15,7 +16,7 @@ import java.util.List;
 
 public class App {
 
-    SportsBettingService sportsBettingService;
+    public SportsBettingService sportsBettingService;
     View view;
     Player player;
     List<Bet> bets;
@@ -30,12 +31,6 @@ public class App {
         Initialize();
     }
 
-   /* public static void main(String[] args)
-    {
-        App app = new App(new SportsBettingService(), new View());
-        app.play();
-    }
-*/
     void play() {
         createPlayer();
         view.printWelcomeMessage(this.player);
@@ -80,8 +75,7 @@ public class App {
 
     }
 
-    private void WagerCreation()
-    {
+    private void WagerCreation() {
         BigDecimal value = BigDecimal.valueOf(0);
         boolean enoughbalance = false;
         do {
