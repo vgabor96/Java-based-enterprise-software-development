@@ -15,7 +15,7 @@ import javax.inject.Inject;
 import java.util.Locale;
 
 @Configuration
-@Import({SportsBettingServiceConfig.class, ViewConfig.class, JpaConfig.class})
+@Import({SportsBettingService.class, ViewConfig.class, JpaConfig.class})
 public class AppConfig {
 
     @Inject JpaConfig jpaconfig;

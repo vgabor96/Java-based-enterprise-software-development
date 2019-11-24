@@ -1,9 +1,13 @@
 package com.example.sportsbetting.domain;
 
+import org.hibernate.annotations.Cascade;
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Transactional
 public class Bet {
     @Id
     @GeneratedValue
@@ -11,15 +15,18 @@ public class Bet {
 
     String description;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "event_id")
+    @OneToOne(fetch = FetchType.EAGER)
+    //@JoinColumn(name = "event_id")
+    //@Cascade(org.hibernate.annotations.CascadeType.MERGE)
     SportEvent event;
 
     @Enumerated(EnumType.STRING)
     BetType type;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "bet_id")
+
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    //@OneToMany(fetch = FetchType.LAZY)
+    //@JoinColumn(name = "bet_id")
     List<Outcome> outcomes;
 
     public int getId() {

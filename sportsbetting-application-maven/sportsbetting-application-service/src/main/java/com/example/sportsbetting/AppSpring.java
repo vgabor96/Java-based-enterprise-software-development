@@ -35,20 +35,24 @@ public class AppSpring {
         try (ConfigurableApplicationContext appContext = new AnnotationConfigApplicationContext(AppConfig.class, JpaConfig.class)){
             App app = appContext.getBean(App.class);
             app.sportsBettingService.setRepositories(appContext);
-            testJpa(appContext);
+
+            /*testJpa(appContext);
             testSpringData(appContext);
+
+             */
             app.play();
+            System.out.println("PROGRAM ENDS");
         }
     }
 
     private static void testSpringData(ApplicationContext context){
         PlayerRepository pr =  context.getBean(PlayerRepository.class);
         String name = pr.findById(1).get().getName();
-        System.out.println("NÉV: "+name);
+        System.out.println("NAME: "+name);
 
     }
     private static void testJpa(ApplicationContext context){
-        EntityManagerFactory emf = context.getBean(EntityManagerFactory.class);
+        /*EntityManagerFactory emf = context.getBean(EntityManagerFactory.class);
         EntityManager em = emf.createEntityManager();
 
         EntityTransaction tr = em.getTransaction();
@@ -56,7 +60,7 @@ public class AppSpring {
         Player player = new PlayerBuilder("Józsi").build();
         em.persist(player);
         tr.commit();
-       /* this.player = new Player();
+       /this.player = new Player();
         this.sportevents = sportsBettingService.findAllSportEvents();
         this.bets = new ArrayList<Bet>();
         this.outcomes = new ArrayList<Outcome>();
@@ -183,7 +187,7 @@ public class AppSpring {
 
 
 
-        em.close();
+       // em.close();
     }
 
 }

@@ -1,6 +1,9 @@
 
 package com.example.sportsbetting.domain;
 
+import org.hibernate.annotations.Cascade;
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -18,8 +21,9 @@ public class OutcomeOdd {
     //@Temporal(TemporalType.TIME)
     LocalDateTime validUntil;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Outcome_id")
+    @OneToOne(fetch = FetchType.EAGER)
+    @Cascade(org.hibernate.annotations.CascadeType.MERGE)
+    //@JoinColumn(name = "Outcome_id")
     Outcome outcome;
 
     public int getId() {
@@ -54,7 +58,10 @@ public class OutcomeOdd {
         this.validUntil = validUntil;
     }
 
+    @Transactional
     public Outcome getOutcome() {
+       // outcome.getId();
+
         return outcome;
     }
 

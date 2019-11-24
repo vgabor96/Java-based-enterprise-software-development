@@ -9,8 +9,9 @@ public class Result {
     @GeneratedValue
     private int id;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "result_id")
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    //@OneToMany(cascade = CascadeType.ALL)
+    //@JoinColumn(name = "result_id")
     List<Outcome> winnerOutcomes;
 
     public int getId() {

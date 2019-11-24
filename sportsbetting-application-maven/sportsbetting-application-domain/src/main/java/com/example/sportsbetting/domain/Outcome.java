@@ -1,5 +1,8 @@
 package com.example.sportsbetting.domain;
 
+import org.hibernate.annotations.Cascade;
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -12,11 +15,13 @@ public class Outcome {
     String description;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "bet_id")
+    @Cascade(org.hibernate.annotations.CascadeType.MERGE)
+    //@JoinColumn(name = "bet_id")
     Bet bet;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Outcome_id")
+    //@OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    //@JoinColumn(name = "Outcome_id")
     List<OutcomeOdd> outcomeOdds;
 
     public int getId() {
@@ -35,7 +40,9 @@ public class Outcome {
         this.description = description;
     }
 
+    @Transactional
     public Bet getBet() {
+        //bet.getId();
         return bet;
     }
 

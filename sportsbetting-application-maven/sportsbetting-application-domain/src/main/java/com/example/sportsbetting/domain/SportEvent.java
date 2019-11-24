@@ -16,11 +16,15 @@ public class SportEvent {
     LocalDateTime startDate;
     //@Temporal(TemporalType.TIME)
     LocalDateTime endDate;
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "sportevent_id")
+
+    //@OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+   // @OneToMany(mappedBy = "sportEvent")
+    @JoinColumn(name = "event_id")
     List<Bet> bets;
+
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "result_id")
+    //@JoinColumn(name = "result_id")
     Result result;
 
     public void setId(int id) {

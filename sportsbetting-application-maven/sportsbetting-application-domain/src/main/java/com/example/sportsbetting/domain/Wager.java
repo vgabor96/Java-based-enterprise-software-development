@@ -1,4 +1,7 @@
 package com.example.sportsbetting.domain;
+import org.hibernate.annotations.Cascade;
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -14,11 +17,12 @@ public class Wager {
     LocalDateTime timestampCreated;
     boolean processed;
     boolean win;
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "wager_outcomeOdd_id")
+    @OneToOne(fetch = FetchType.EAGER)
+    //@Cascade(org.hibernate.annotations.CascadeType.MERGE)
+    //@JoinColumn(name = "wager_outcomeOdd_id")
     OutcomeOdd odd;
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "wager_player_id")
+    @OneToOne(fetch = FetchType.EAGER)
+    //@JoinColumn(name = "wager_player_id")
     Player player;
     @Enumerated(EnumType.STRING)
     Currency currency;
@@ -62,7 +66,11 @@ public class Wager {
         this.win = win;
     }
 
+    @Transactional
     public OutcomeOdd getOdd() {
+
+        odd.getOutcome().getBet().getId();
+
         return odd;
     }
 

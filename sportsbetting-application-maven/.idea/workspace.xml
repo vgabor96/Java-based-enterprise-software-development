@@ -2,12 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0deeca1-ec56-4f0d-8c54-453cae21abee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/config/SportsBettingServiceConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/sportsbetting-application-domain.iml" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/sportsbetting-application-domain.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/Bet.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/Bet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/Outcome.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/Outcome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/OutcomeOdd.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/OutcomeOdd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/Result.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/SportEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/SportEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/Wager.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/Wager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/repository/BetRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/repository/BetRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/repository/PlayerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/repository/PlayerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/repository/SportEventRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/repository/SportEventRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/repository/WagerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/repository/WagerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/sportsbetting-application-service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/sportsbetting-application-service.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/AppSpring.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/AppSpring.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/SportsBettingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/SportsBettingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/View.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/config/AppConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/config/SportsBettingServiceConfig.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -112,5 +126,17 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="sportevents.get(0).bets.get(0)" language="JAVA" />
+        <watch expression="sportevents" language="JAVA" />
+        <watch expression="bet.getOutcomes()" />
+        <watch expression="outcome.getOutcomeOdds()" />
+        <watch expression="wagerRepository.count()" />
+        <watch expression="((Wager)((java.util.ArrayList)((App)this).wagers).get(0)).odd" custom="com.example.sportsbetting.App,com.example.sportsbetting.domain.Wager,java.util.ArrayList" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
