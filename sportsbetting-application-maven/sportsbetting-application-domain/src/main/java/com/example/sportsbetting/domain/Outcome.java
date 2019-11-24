@@ -15,7 +15,7 @@ public class Outcome {
     String description;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @Cascade(org.hibernate.annotations.CascadeType.MERGE)
+   // @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
     //@JoinColumn(name = "bet_id")
     Bet bet;
 
@@ -42,7 +42,7 @@ public class Outcome {
 
     @Transactional
     public Bet getBet() {
-        //bet.getId();
+        bet.getId();
         return bet;
     }
 

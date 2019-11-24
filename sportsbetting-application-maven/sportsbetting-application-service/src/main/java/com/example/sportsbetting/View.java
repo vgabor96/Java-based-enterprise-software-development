@@ -3,6 +3,7 @@ package com.example.sportsbetting;
 import com.example.sportsbetting.builder.PlayerBuilder;
 import com.example.sportsbetting.domain.*;
 import org.hibernate.Hibernate;
+import org.hibernate.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
@@ -231,6 +232,10 @@ public class View {
     public void printResults(Player player, List<Wager> wagers) {
         if (wagers != null && wagers.size() > 0 && player != null) {
 
+
+            wagers = App.findAllWagers();
+          //  Hibernate.initialize(wagers);
+          //  wagers.forEach(wager -> Hibernate.initialize(wager.getOdd().getOutcome().getBet()));
             /*System.out.println("Results:");*/
             LOG.info(messageSource.getMessage("printResults.Results.message", null, locale));
             boolean iswin = false;

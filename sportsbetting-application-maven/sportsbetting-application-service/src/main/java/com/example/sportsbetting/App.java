@@ -18,7 +18,7 @@ import java.util.List;
 
 public  class App {
 
-    public SportsBettingService sportsBettingService;
+    public static SportsBettingService sportsBettingService;
     View view;
     Player player;
     List<SportEvent> sportevents;
@@ -76,9 +76,17 @@ public  class App {
     @Transactional
     void printResults() {
 
-        view.printResults(this.player, this.wagers);
+
+            view.printResults(this.player, this.wagers);
 
 
+
+
+    }
+
+    public static List<Wager> findAllWagers()
+    {
+        return sportsBettingService.findAllWagers();
     }
 
 
