@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0deeca1-ec56-4f0d-8c54-453cae21abee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/Outcome.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/src/main/java/com/example/sportsbetting/domain/Outcome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/src/main/java/com/example/sportsbetting/View.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
