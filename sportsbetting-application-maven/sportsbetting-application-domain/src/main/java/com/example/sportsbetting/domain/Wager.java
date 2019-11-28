@@ -1,16 +1,39 @@
-package com.example.sportsbetting;
+package com.example.sportsbetting.domain;
+import org.hibernate.annotations.Cascade;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+@Entity
 public class Wager {
+    @Id
+    @GeneratedValue
+    private int id;
+
     BigDecimal amount;
+    //@Temporal(TemporalType.TIME)
     LocalDateTime timestampCreated;
     boolean processed;
     boolean win;
+    @OneToOne(fetch = FetchType.EAGER)
+    //@Cascade(org.hibernate.annotations.CascadeType.MERGE)
+    //@JoinColumn(name = "wager_outcomeOdd_id")
     OutcomeOdd odd;
+    @OneToOne(fetch = FetchType.EAGER)
+    //@JoinColumn(name = "wager_player_id")
     Player player;
+    @Enumerated(EnumType.STRING)
     Currency currency;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public BigDecimal getAmount() {
         return amount;
     }
@@ -43,7 +66,11 @@ public class Wager {
         this.win = win;
     }
 
+    @Transactional
     public OutcomeOdd getOdd() {
+
+        odd.getOutcome().getBet().getId();
+
         return odd;
     }
 

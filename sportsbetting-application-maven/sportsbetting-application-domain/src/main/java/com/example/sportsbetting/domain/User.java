@@ -1,5 +1,6 @@
-package com.example.sportsbetting;
+package com.example.sportsbetting.domain;
 public class User extends Player{
+
     String email;
     String password;
 

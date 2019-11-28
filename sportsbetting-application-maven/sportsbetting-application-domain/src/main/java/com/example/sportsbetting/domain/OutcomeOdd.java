@@ -1,14 +1,38 @@
 
-package com.example.sportsbetting;
+package com.example.sportsbetting.domain;
 
+import org.hibernate.annotations.Cascade;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+@Entity
 public class OutcomeOdd {
+    @Id
+    @GeneratedValue
+    private int id;
+
     BigDecimal value;
+
+    //@Temporal(TemporalType.TIME)
     LocalDateTime validFrom;
+    //@Temporal(TemporalType.TIME)
     LocalDateTime validUntil;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @Cascade(org.hibernate.annotations.CascadeType.MERGE)
+    //@JoinColumn(name = "Outcome_id")
     Outcome outcome;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public BigDecimal getValue() {
         return value;
@@ -34,7 +58,10 @@ public class OutcomeOdd {
         this.validUntil = validUntil;
     }
 
+    @Transactional
     public Outcome getOutcome() {
+       // outcome.getId();
+
         return outcome;
     }
 

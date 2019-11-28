@@ -1,9 +1,17 @@
 package com.example.sportsbetting;
 
+import com.example.sportsbetting.builder.PlayerBuilder;
+import com.example.sportsbetting.domain.*;
+import org.hibernate.Hibernate;
+import org.hibernate.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
+import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,15 +20,16 @@ import java.util.Scanner;
 
 public class View {
 
-    private  static final Logger LOG = LoggerFactory.getLogger(View.class);
+    private static final Logger LOG = LoggerFactory.getLogger(View.class);
     //private List<OutcomeOdd> outComeOdds;
     public Locale locale;
     public MessageSource messageSource;
+
     public View() {
-       // this.outComeOdds = new ArrayList<OutcomeOdd>();
+        // this.outComeOdds = new ArrayList<OutcomeOdd>();
     }
 
-    public Player readPlayerData(){
+    public Player readPlayerData() {
         Scanner in = new Scanner(System.in);
         String name;
         String sbalance;
@@ -28,72 +37,67 @@ public class View {
         String currency;
         Currency currency1;
 
-       // System.out.println("What is your name?");
+        // System.out.println("What is your name?");
         //LOG.info("What is your name?");
-        LOG.info(messageSource.getMessage("readPlayerData.name.message",null,locale));
+        LOG.info(messageSource.getMessage("readPlayerData.name.message", null, locale));
 
         name = in.nextLine();
         do {
             //System.out.println("How much money do you have (more than 0)?");
-            LOG.info(messageSource.getMessage("readPlayerData.money.message",null,locale));
+            LOG.info(messageSource.getMessage("readPlayerData.money.message", null, locale));
             sbalance = in.nextLine();
             int value = -1;
 
-            try{
+            try {
                 value = Integer.parseInt(sbalance);
-                if(value>=0)
-                {
+                if (value >= 0) {
                     balance = value;
                 }
 
 
-            }catch (NumberFormatException ex) {
+            } catch (NumberFormatException ex) {
                 //not integer
                 balance = -1;
             }
 
 
-        }while(balance < 0);
+        } while (balance < 0);
 
 
         //System.out.println("What is your currency? (HUF, EUR or USD) ");
-        LOG.info(messageSource.getMessage("readPlayerData.currency.message",null,locale));
+        LOG.info(messageSource.getMessage("readPlayerData.currency.message", null, locale));
 
         currency = in.nextLine();
-        if (currency.equals("EUR"))
-        {
+        if (currency.equals("EUR")) {
             currency1 = Currency.EUR;
-        }
-        else if (currency.equals("USD"))
-        {
+        } else if (currency.equals("USD")) {
             currency1 = Currency.USD;
-        }
-        else
-        {
+        } else {
             currency1 = Currency.HUF;
         }
         return new PlayerBuilder(name).balance(BigDecimal.valueOf(balance)).currency(currency1).build();
     }
 
-    public void printWelcomeMessage(Player player){
+    public void printWelcomeMessage(Player player) {
         //System.out.println("Welcome "+player.getName()+"!");
-        LOG.info(messageSource.getMessage("printWelcomeMessage.message",new Object[] {player.getName()},locale));
+        LOG.info(messageSource.getMessage("printWelcomeMessage.message", new Object[]{player.getName()}, locale));
 
     }
-    public void printBalance(Player player){
+
+    public void printBalance(Player player) {
         //System.out.println("Your balance is "+player.getBalance()+" "+player.getCurrency());
-        LOG.info(messageSource.getMessage("printBalance.message",new Object[]{player.getBalance(),player.getCurrency()},locale));
+        LOG.info(messageSource.getMessage("printBalance.message", new Object[]{player.getBalance(), player.getCurrency()}, locale));
 
     }
-    public void printOutcomeOdds(List<SportEvent> events){
-        if (events!=null && !events.isEmpty())
-        {
+
+    public void printOutcomeOdds(List<SportEvent> events) {
+        if (events != null && !events.isEmpty()) {
 
             int i = 1;
-            for (SportEvent event: events) {
+            for (SportEvent event : events) {
                 for (Bet bet : event.getBets()) {
-                    for (Outcome outcome : bet.getOutcomes()){
-                        for (OutcomeOdd outcomeodd : outcome.getOutcomeOdds()){
+                    for (Outcome outcome : bet.getOutcomes()) {
+                        for (OutcomeOdd outcomeodd : outcome.getOutcomeOdds()) {
                             /*System.out.println(i +": Sport Event: "+event.getTitle()
                                     +" (start: "+event.getStartDate()
                                     +"), Bet: "+bet.getDescription()
@@ -102,6 +106,7 @@ public class View {
                                     +", Valid between "+ outcomeodd.getValidFrom()
                                     +" and "+ outcomeodd.getValidUntil());
                             */
+
                             LOG.info(messageSource.getMessage("printOutcomeOdds.message",
                                     new Object[]{
                                             i,
@@ -112,7 +117,7 @@ public class View {
                                             outcomeodd.getValue(),
                                             outcomeodd.getValidFrom(),
                                             outcomeodd.getValidUntil()
-                                    },locale));
+                                    }, locale));
 
                             i++;
                         }
@@ -125,24 +130,24 @@ public class View {
         }
 
     }
-    public OutcomeOdd selectOutComeOdd(List<SportEvent> events){
+
+    public OutcomeOdd selectOutComeOdd(List<SportEvent> events) {
 
 
-        if (events!=null && !events.isEmpty()) {
+        if (events != null && !events.isEmpty()) {
             List<OutcomeOdd> outcomeOdds = new ArrayList<OutcomeOdd>();
             Scanner in = new Scanner(System.in);
             String input;
             int inputInt = 0;
             do {
                 //System.out.println("What are you want to bet on? (choose a number or press 'q' for quit");
-                LOG.info(messageSource.getMessage("selectOutComeOdd.message",null,locale));
+                LOG.info(messageSource.getMessage("selectOutComeOdd.message", null, locale));
                 printOutcomeOdds(events);
                 outcomeOdds = GetOutcomeOddsFromEvents(events);
                 input = in.nextLine();
-                inputInt = selectOutComeOddInputIsTrue(input,outcomeOdds.size());
-                if (inputInt > -1)
-                {
-                    return outcomeOdds.get(inputInt-1);
+                inputInt = selectOutComeOddInputIsTrue(input, outcomeOdds.size());
+                if (inputInt > -1) {
+                    return outcomeOdds.get(inputInt - 1);
                 }
             } while (!input.equals("q"));
 
@@ -151,23 +156,22 @@ public class View {
         return null;
     }
 
-    private int selectOutComeOddInputIsTrue(String input,int outcomeOddsSize)
-    {
+    private int selectOutComeOddInputIsTrue(String input, int outcomeOddsSize) {
         int value = -1;
-        try{
+        try {
             value = Integer.parseInt(input);
-            if (value >=1 && value <=outcomeOddsSize){
+            if (value >= 1 && value <= outcomeOddsSize) {
                 return value;
             }
 
 
-        }catch (NumberFormatException ex) {
+        } catch (NumberFormatException ex) {
             return -1;
         }
         return -1;
     }
 
-    private List<OutcomeOdd>GetOutcomeOddsFromEvents(List<SportEvent> events) {
+    private List<OutcomeOdd> GetOutcomeOddsFromEvents(List<SportEvent> events) {
         List<OutcomeOdd> outcomeOdds = new ArrayList<>();
         for (SportEvent event : events) {
             for (Bet bet : event.getBets()) {
@@ -182,95 +186,93 @@ public class View {
         }
         return outcomeOdds;
     }
-    public BigDecimal readWagerAmount(){
+
+    public BigDecimal readWagerAmount() {
         //System.out.println("What amount do you wish to bet on it?");
-        LOG.info(messageSource.getMessage("readWagerAmount.message",null,locale));
+        LOG.info(messageSource.getMessage("readWagerAmount.message", null, locale));
         Scanner in = new Scanner(System.in);
         String input;
         input = in.nextLine();
         int value = -1;
 
-        try{
+        try {
             value = Integer.parseInt(input);
-            if(value>=0)
-            {
+            if (value >= 0) {
                 return BigDecimal.valueOf(value);
             }
 
 
-        }catch (NumberFormatException ex) {
+        } catch (NumberFormatException ex) {
             //not integer
             return BigDecimal.valueOf(-1);
         }
         //negative value
-        return  BigDecimal.valueOf(-2);
+        return BigDecimal.valueOf(-2);
     }
 
-    public void printWagerSaved(Wager wager){
-        /*System.out.println("Wager '"+wager.getOdd().getOutcome().getBet().getDescription()
-                +" = "+wager.getOdd().getOutcome().getDescription()
-                +"' of "+wager.getOdd().getOutcome().getBet().getEvent().getTitle()
-                +" [odd: "+wager.getOdd().getValue()
-                +", amount: "+wager.getAmount()+"] saved!");
-
-         */
-        LOG.info(messageSource.getMessage("printWagedSaved.message",new Object[]{
+    public void printWagerSaved(Wager wager) {
+        LOG.info(messageSource.getMessage("printWagedSaved.message", new Object[]{
                 wager.getOdd().getOutcome().getBet().getDescription(),
                 wager.getOdd().getOutcome().getDescription(),
                 wager.getOdd().getOutcome().getBet().getEvent().getTitle(),
                 wager.getOdd().getValue(),
                 wager.getAmount()
-        },locale));
+        }, locale));
     }
-    public void printNotEnoughBalance(Player player){
-            //System.out.println(" You don't have enough money, your balance is "+player.getBalance()+" "+player.getCurrency());
-        LOG.info(messageSource.getMessage("printNotEnoughBalance.message",new Object[]{
+
+    public void printNotEnoughBalance(Player player) {
+        //System.out.println(" You don't have enough money, your balance is "+player.getBalance()+" "+player.getCurrency());
+        LOG.info(messageSource.getMessage("printNotEnoughBalance.message", new Object[]{
                 player.getBalance(),
                 player.getCurrency()
-        },locale));
+        }, locale));
     }
-    public void printResults(Player player, List<Wager> wagers){
-        if (wagers != null && wagers.size()> 0 && player!= null)
-        {
+
+    @Transactional
+    public void printResults(Player player, List<Wager> wagers) {
+        if (wagers != null && wagers.size() > 0 && player != null) {
+
+
+            wagers = App.findAllWagers();
+          //  Hibernate.initialize(wagers);
+          //  wagers.forEach(wager -> Hibernate.initialize(wager.getOdd().getOutcome().getBet()));
             /*System.out.println("Results:");*/
-            LOG.info(messageSource.getMessage("printResults.Results.message",null,locale));
+            LOG.info(messageSource.getMessage("printResults.Results.message", null, locale));
             boolean iswin = false;
             String win = "";
-            for ( Wager wager: wagers ){
-                /*
-                System.out.println("Wager '"+wager.getOdd().getOutcome().getBet().getDescription()
-                        +" = "+wager.getOdd().getOutcome().getDescription()
-                        +"' of "+wager.getOdd().getOutcome().getBet().getEvent().getTitle()
-                        +" [odd: "+wager.getOdd().getValue()
-                        +", amount: "+wager.getAmount()+"], win: "+wager.isWin());*/
-             iswin = wager.isWin();
-                if (iswin){
-                    win = messageSource.getMessage("printTrue",null,locale);
+            for (Wager wager : wagers) {
+                iswin = wager.isWin();
+                if (iswin) {
+                    win = messageSource.getMessage("printTrue", null, locale);
+                } else {
+                    win = messageSource.getMessage("printFalse", null, locale);
                 }
-                else{
-                    win = messageSource.getMessage("printFalse",null,locale);
-                }
-                LOG.info(messageSource.getMessage("printResults.Wager.message",new Object[]{
+
+                LOG.info(messageSource.getMessage("printResults.Wager.message", new Object[]{
                         wager.getOdd().getOutcome().getBet().getDescription(),
                         wager.getOdd().getOutcome().getDescription(),
                         wager.getOdd().getOutcome().getBet().getEvent().getTitle(),
                         wager.getOdd().getValue(),
                         wager.getAmount(),
                         win
-                },locale));
+                }, locale));
             }
 
 
 
-           /* System.out.println("Your new balance is "+player.getBalance()+ " "+player.getCurrency());*/
-            LOG.info(messageSource.getMessage("printResults.newBalance.message",new Object[]{
+            /* System.out.println("Your new balance is "+player.getBalance()+ " "+player.getCurrency());*/
+            LOG.info(messageSource.getMessage("printResults.newBalance.message", new Object[]{
                     player.getBalance(),
                     player.getCurrency()
-            },locale));
+            }, locale));
 
         }
 
     }
-
-
 }
+
+
+
+
+
+

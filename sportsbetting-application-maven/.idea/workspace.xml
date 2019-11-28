@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d0deeca1-ec56-4f0d-8c54-453cae21abee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sportsbetting-application-domain/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-domain/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sportsbetting-application-service/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sportsbetting-application-service/target/maven-archiver/pom.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,17 +38,17 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/sportsbetting-application-service/src/main" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\loahc\Documents\GitHub\Java-based-enterprise-software-development\sportsbetting-application-maven\sportsbetting-application-service\src\main" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\loahc\Documents\GitHub\sportsbetting-application-maven" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\loahc\Documents\GitHub\Java-based-enterprise-software-development\sportsbetting-application-maven\sportsbetting-application-service\src\main" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -109,5 +107,17 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="sportevents.get(0).bets.get(0)" language="JAVA" />
+        <watch expression="sportevents" language="JAVA" />
+        <watch expression="bet.getOutcomes()" />
+        <watch expression="outcome.getOutcomeOdds()" />
+        <watch expression="wagerRepository.count()" />
+        <watch expression="((Wager)((java.util.ArrayList)((App)this).wagers).get(0)).odd" custom="com.example.sportsbetting.App,com.example.sportsbetting.domain.Wager,java.util.ArrayList" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

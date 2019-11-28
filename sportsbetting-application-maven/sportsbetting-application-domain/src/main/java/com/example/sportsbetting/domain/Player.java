@@ -1,15 +1,29 @@
-package com.example.sportsbetting;
+package com.example.sportsbetting.domain;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+@Entity
 public class Player {
+
+    @Id
+    @GeneratedValue
+    private int id;
     String name;
     Integer accountNumber;
     BigDecimal balance;
+    //@Temporal(TemporalType.DATE)
     LocalDate birth;
+    @Enumerated(EnumType.STRING)
     Currency currency;
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getName() {
         return name;
     }

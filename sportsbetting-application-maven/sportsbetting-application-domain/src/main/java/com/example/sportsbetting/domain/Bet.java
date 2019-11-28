@@ -1,12 +1,40 @@
-package com.example.sportsbetting;
+package com.example.sportsbetting.domain;
 
+import org.hibernate.annotations.Cascade;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
+@Transactional
 public class Bet {
+    @Id
+    @GeneratedValue
+    private int id;
+
     String description;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    //@JoinColumn(name = "event_id")
+    //@Cascade(org.hibernate.annotations.CascadeType.MERGE)
     SportEvent event;
+
+    @Enumerated(EnumType.STRING)
     BetType type;
+
+
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    //@OneToMany(fetch = FetchType.LAZY)
+    //@JoinColumn(name = "bet_id")
     List<Outcome> outcomes;
+
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getDescription() {
         return description;
