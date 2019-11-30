@@ -15,6 +15,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -65,6 +66,11 @@ public  class SportsBettingService {
 
          */
 
+    	 Player player = new PlayerBuilder("Laszlo")
+    			 .birth(LocalDate.parse("2020-01-01", DateTimeFormatter.ofPattern("yyyy-MM-dd")))
+    			 .accountnumber(12345678)
+    			 .currency(Currency.HUF)
+    			 .balance(BigDecimal.valueOf(999999999)).build();
 
         LocalDateTime startDate =LocalDateTime.parse("2020-01-01 12:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         LocalDateTime endDate =LocalDateTime.parse("2020-01-01 14:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
@@ -184,6 +190,8 @@ public  class SportsBettingService {
         newOrder = (Order) q.getSingleResult();
         */
 
+        playerRepository.save(player);
+        
         sportEventRepository.save(se);
         //SportEvent se2 = sportEventRepository.findAll().get(0);
         betRepository.save(bet_1);

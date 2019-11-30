@@ -1,0 +1,70 @@
+package com.example.sportsbetting.builder;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.OneToOne;
+
+import com.example.sportsbetting.domain.Bet;
+import com.example.sportsbetting.domain.BetType;
+import com.example.sportsbetting.domain.Currency;
+import com.example.sportsbetting.domain.Outcome;
+import com.example.sportsbetting.domain.OutcomeOdd;
+import com.example.sportsbetting.domain.Player;
+import com.example.sportsbetting.domain.SportEvent;
+import com.example.sportsbetting.domain.Wager;
+
+public class WagerBuilder {
+	  BigDecimal amount;
+	    LocalDateTime timestampCreated;
+	    boolean processed;
+	    boolean win;
+	    OutcomeOdd odd;
+	    Currency currency;
+
+    public WagerBuilder(BigDecimal amount) {
+        
+      this.amount = amount;
+    }
+    public WagerBuilder timestampCreated(LocalDateTime timestampCreated){
+        this.timestampCreated = timestampCreated;
+        return this;
+    }
+    public WagerBuilder processed(boolean processed){
+        this.processed = processed;
+        return this;
+    }
+    public WagerBuilder win(boolean win){
+        this.win = win;
+        return this;
+    }
+    public WagerBuilder odd( OutcomeOdd odd){
+        this.odd = odd;
+        return this;
+    }
+    public WagerBuilder currency( Currency currency){
+        this.currency = currency;
+        return this;
+    }
+
+    public Wager build(){
+
+        Wager wager = new Wager();
+        wager.setAmount(this.amount);
+        wager.setProcessed(this.processed);
+        wager.setWin(this.win);
+        wager.setOdd(this.odd);
+        wager.setCurrency(this.currency);
+
+        return wager;
+    }
+
+    private WagerBuilder() {
+
+    }
+}
