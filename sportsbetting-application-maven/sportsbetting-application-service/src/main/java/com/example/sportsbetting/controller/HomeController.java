@@ -3,6 +3,7 @@ package com.example.sportsbetting.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -20,12 +21,20 @@ import org.springframework.http.converter.ResourceHttpMessageConverter;
 public class HomeController {
 	
 	
-
+	@Autowired
+	private SportsBettingService service;
 
 	  @GetMapping("/")
 	    public String homeInit(Locale locale, Model model) {
 	        return "home";
 	    }
+	  
+	@RequestMapping("/welcome")
+	public ModelAndView helloWorld() {
+ 
+		String message = "<br>"+service.findAllSportEvents().get(0).getTitle()+"<br>";
+		return new ModelAndView("welcome", "message", message);
+	}
 /*
 	  
 		public SportEvent BetWorld() {
