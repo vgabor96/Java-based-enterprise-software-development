@@ -1,9 +1,11 @@
 com\example\sportsbetting\App.class
 com\example\sportsbetting\config\JpaConfig.class
 com\example\sportsbetting\AppSpring.class
+com\example\sportsbetting\config\WebMvcConfig.class
+com\example\sportsbetting\controller\HomeController.class
 com\example\sportsbetting\SportsBettingService.class
 com\example\sportsbetting\config\AppConfig.class
+com\example\sportsbetting\config\WebAppInitializer.class
 com\example\sportsbetting\config\MessageSourceConfig.class
 com\example\sportsbetting\View.class
 com\example\sportsbetting\config\ViewConfig.class
-com\sportsbettingapplication\controller\HomeController.class

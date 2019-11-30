@@ -3,9 +3,12 @@ package com.example.sportsbetting;
 import com.example.sportsbetting.builder.*;
 import com.example.sportsbetting.domain.*;
 import com.example.sportsbetting.repository.*;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
+import javax.activation.DataSource;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -20,26 +23,37 @@ import java.util.Random;
 
 @Transactional
 @Service
-public class SportsBettingService {
+public  class SportsBettingService {
     private Random r;
     private static List<SportEvent> sportEvents;
-    private static  BetRepository betRepository;
-    private static OutComeOddRepository outComeOddRepository;
-    private static OutComeRepository outComeRepository;
-    private static PlayerRepository playerRepository;
-    private static ResultRepository resultRepository;
-    private  static SportEventRepository sportEventRepository;
-    private static WagerRepository wagerRepository;
+    
+    
+    
+    @Autowired
+    private   BetRepository betRepository;
+    @Autowired
+    private  OutComeOddRepository outComeOddRepository;
+    @Autowired
+    private  OutComeRepository outComeRepository;
+    @Autowired
+    private  PlayerRepository playerRepository;
+    @Autowired
+    private  ResultRepository resultRepository;
+    @Autowired
+    private  SportEventRepository sportEventRepository;
+    @Autowired
+    private  WagerRepository wagerRepository;
 
 
     public SportsBettingService() {
 
 
+    	
         this.r = new Random();
 
 
     }
-     void Initialize(ApplicationContext context){
+     void Initialize(){
         /*this.player = new Player();
         this.sportevents = sportsBettingService.findAllSportEvents();
         this.bets = new ArrayList<Bet>();
@@ -212,6 +226,7 @@ public class SportsBettingService {
 
     }
 
+    @Autowired
     public void setRepositories(ApplicationContext context) {
 
         betRepository = context.getBean(BetRepository.class);
@@ -224,7 +239,7 @@ public class SportsBettingService {
 
 
 
-        Initialize(context);
+        Initialize();
 
     }
 
