@@ -26,6 +26,7 @@ public class WagerBuilder {
 	    boolean win;
 	    OutcomeOdd odd;
 	    Currency currency;
+	    Player player;
 
     public WagerBuilder(BigDecimal amount) {
         
@@ -51,15 +52,22 @@ public class WagerBuilder {
         this.currency = currency;
         return this;
     }
+    
+    public WagerBuilder player(Player player) {
+    this.player = player;
+    return this;
+    }
 
     public Wager build(){
 
         Wager wager = new Wager();
         wager.setAmount(this.amount);
         wager.setProcessed(this.processed);
+        wager.setTimestampCreated(this.timestampCreated);
         wager.setWin(this.win);
         wager.setOdd(this.odd);
         wager.setCurrency(this.currency);
+        wager.setPlayer(this.player);
 
         return wager;
     }

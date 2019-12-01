@@ -35,7 +35,12 @@ public  class App {
 
     void play() {
         sportevents = sportsBettingService.findAllSportEvents();
-
+        Player player = this.sportsBettingService.findPlayer();
+        String name = player.getName();
+  		String birth = player.getBirth().toString();
+  		String accountnumber = player.getAccountNumber().toString();
+  		String currency = player.getCurrency().toString();
+  		String balance = player.getBalance().toString();
         createPlayer();
         view.printWelcomeMessage(this.player);
         view.printBalance(this.player);

@@ -93,4 +93,9 @@ public class Wager {
     public void setCurrency(Currency currency) {
         this.currency = currency;
     }
+    
+    public String getEventTitle(){
+      return this.getOdd().getOutcome().getBet().getEvent().getTitle();
+    }
+    
 }

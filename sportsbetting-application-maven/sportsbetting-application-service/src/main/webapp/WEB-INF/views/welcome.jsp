@@ -1,3 +1,6 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ page import="com.example.sportsbetting.domain.*" %>
 <html>
 <head>
 <link href="webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
@@ -11,47 +14,66 @@ body {
 </head>
 <body>
 <div class="input-group mb-3">
-${message}
+
 </div>
 
 <div class="container">
-
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
   </div>
-  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+  <input id="inputname" value="${name}" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
 </div>
+
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-default">Date of Birth</span>
   </div>
-  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+  <input value ="${birth}" id="inputbirth" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
 </div>
+
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-default">Account number</span>
   </div>
-  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+  <input value ="${accountnumber}" id="inputaccountnumber" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
 </div>
+
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-default">Currency</span>
-  </div>
-   <select class="custom-select" id="inputGroupSelect01">
-    <option selected>Choose...</option>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
-  </select>
+</div>
 </div>
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroup-sizing-default">Balance</span>
   </div>
-  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+  <input id="inputbalance" value ="${balance}" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
 </div>
 </div>
+
+<table class="table">
+  <thead>
+    <tr>
+     <th scope="col"> </th>
+      <th scope="col">#</th>
+      <th scope="col">Event title</th>
+      <th scope="col">Event type</th>
+      <th scope="col">Bet type</th>
+      <th scope="col">Outcome value</th>
+      <th scope="col">Outcome odd</th>
+      <th scope="col">Wager amount</th>
+      <th scope="col">Winner</th>
+      <th scope="col">Processed</th>
+    </tr>
+  </thead>
+  <tbody>
+	${wagers}
+  </tbody>
+</table>
+<!-- 
+
+-->
 <script src="webjars/jquery/3.4.1/jquery.min.js"></script>
 <script src="webjars/bootstrap/4.3.1/bootstrap.min.css"></script>
 </body>

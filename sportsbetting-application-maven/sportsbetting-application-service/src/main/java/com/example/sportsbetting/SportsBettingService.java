@@ -67,7 +67,7 @@ public  class SportsBettingService {
          */
 
     	 Player player = new PlayerBuilder("Laszlo")
-    			 .birth(LocalDate.parse("2020-01-01", DateTimeFormatter.ofPattern("yyyy-MM-dd")))
+    			 .birth(LocalDate.of(1997, 8, 13))
     			 .accountnumber(12345678)
     			 .currency(Currency.HUF)
     			 .balance(BigDecimal.valueOf(999999999)).build();
@@ -159,7 +159,31 @@ public  class SportsBettingService {
 
         //Initialize fields with temps
 
-
+        Wager w1 = new WagerBuilder(BigDecimal.valueOf(100))
+        		.timestampCreated(LocalDateTime.parse("2020-01-03 12:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
+        		.processed(false)
+        		.win(false)
+        		.currency(Currency.HUF)
+        		.player(player)
+        		.odd(outcomeOdd_1)
+        		.build();
+        Wager w2 =  new WagerBuilder(BigDecimal.valueOf(1000))
+        		.timestampCreated(LocalDateTime.parse("2020-01-01 13:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
+        		.processed(true)
+        		.win(false)
+        		.currency(Currency.HUF)
+        		.player(player)
+          		.odd(outcomeOdd_2)
+        		.build();
+        Wager w3 =  new WagerBuilder(BigDecimal.valueOf(500))
+        		.timestampCreated(LocalDateTime.parse("2020-01-02 13:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
+        		.processed(true)
+        		.win(true)
+        		.currency(Currency.HUF)
+        		.odd(outcomeOdd_3)
+        		.player(player)
+        		.build();
+        		
 
 
         /*
@@ -208,7 +232,9 @@ public  class SportsBettingService {
         outComeOddRepository.save(outcomeOdd_3);
         outComeOddRepository.save(outcomeOdd_4);
         //SportEvent se3 =findAllSportEvents().get(0);
-
+        wagerRepository.save(w1);
+        wagerRepository.save(w2);
+        wagerRepository.save(w3);
 
 
         //System.out.println(se3.getTitle());
@@ -234,6 +260,7 @@ public  class SportsBettingService {
 
     }
 
+     
     @Autowired
     public void setRepositories(ApplicationContext context) {
 
@@ -286,6 +313,18 @@ public  class SportsBettingService {
 
 
         return  wagerRepository.findAll();
+    }
+    
+    public String TableWagers(){
+
+    	String table = "";
+    	for (Wager wager : wagerRepository.findAll()) 
+    	{ 
+    	    table +="<tr>\n <td>"+wager.getEventTitle()+"</td>\n</tr>";
+    	    //table +="<tr>\n <td><c:out value=\"${"+wager.getEventTitle()+"}\" /></td>\n</tr>";
+    	}	
+    	return table;
+      
     }
 
     private Wager Randomwinner()
