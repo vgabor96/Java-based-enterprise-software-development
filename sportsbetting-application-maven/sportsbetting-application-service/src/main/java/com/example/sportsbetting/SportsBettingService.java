@@ -70,7 +70,7 @@ public  class SportsBettingService {
     			 .birth(LocalDate.of(1997, 8, 13))
     			 .accountnumber(12345678)
     			 .currency(Currency.HUF)
-    			 .balance(BigDecimal.valueOf(999999999)).build();
+    			 .balance(BigDecimal.valueOf(9999)).build();
 
         LocalDateTime startDate =LocalDateTime.parse("2020-01-01 12:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         LocalDateTime endDate =LocalDateTime.parse("2020-01-01 14:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
@@ -78,6 +78,7 @@ public  class SportsBettingService {
         SportEvent se = new SportEventBuilder("Arsenal vs Chelsea")
                 .startDate(startDate)
                 .endDate(endDate)
+                .eventtype(EventType.FOOTBALLMATCH)
                 .build();
         //BET 1
         Bet bet_1 = new BetBuilder("player Oliver Giroud score")
@@ -260,6 +261,47 @@ public  class SportsBettingService {
 
     }
 
+     public Boolean updatePlayer(String name,String birth, String acc, String Curr, String bal) {
+    	 
+    	 try	{
+    			String playername = name ;    
+    			   LocalDate playerbirth = LocalDate.parse(birth) ;  
+    			   Integer playeraccountnumber = Math.round(Float.parseFloat(acc));  
+    			   Currency playerCurrency;
+    			   switch(Curr) {
+    			   case "HUF":
+    			     // code block
+    				   playerCurrency = Currency.HUF;
+    			     break;
+    			   case "EUR":
+    			     // code block
+    				   playerCurrency = Currency.EUR;
+    			     break;
+    			   default:
+    			     // code block
+    				   playerCurrency = Currency.USD;
+    			 }
+    	     
+    			 
+    			    BigDecimal playerbalance = BigDecimal.valueOf(Float.parseFloat(bal)) ;   
+    			    
+    			    Player player = this.findPlayer();
+    			    player.setName(playername);
+    			   player.setBirth(playerbirth);
+    			    player.setAccountNumber(playeraccountnumber);
+    			    player.setCurrency(playerCurrency);
+    			    player.setBalance(playerbalance);
+    			    this.savePlayer(player);
+    	    	 return true;
+    	 }
+    	 catch	(Exception e) {
+    		 return false;
+    		 
+    	 }
+    	 
+    	 
+    	 
+     }
      
     @Autowired
     public void setRepositories(ApplicationContext context) {
@@ -317,10 +359,31 @@ public  class SportsBettingService {
     
     public String TableWagers(){
 
+    	int i = 0;
     	String table = "";
+    	String button = "";
     	for (Wager wager : wagerRepository.findAll()) 
     	{ 
-    	    table +="<tr>\n <td>"+wager.getEventTitle()+"</td>\n</tr>";
+    	 
+    		 if(!wager.isProcessed())
+       	  		{
+    			 button = "<button id=\"wager_"+wager.getId()+" type=\"button\" class=\"btn btn-primary\">Remove</button>";
+       	  		}
+    		i++;
+    	    table +="<tr>\n <td>"
+    	    +button+"</td>\n <th>"
+    		+i+"</th>\n <td>"
+    	    +wager.getOdd().getOutcome().getBet().getEvent().getTitle()+"</td>\n <td>"
+    	    +wager.getOdd().getOutcome().getBet().getEvent().getEventtype()+"</td>\n <td>"
+    	    +wager.getOdd().getOutcome().getBet().getType()+"</td>\n <td>"
+    	    +wager.getOdd().getOutcome().getDescription()+"</td>\n <td>"
+    	    +"1:"+wager.getOdd().getValue()+"</td>\n <td>"
+    	    +wager.getAmount()+" "+wager.getCurrency()+"</td>\n <td>"
+    	    +wager.isWin()+"</td>\n <td>"
+    	    +wager.isProcessed()+"</td>\n <td>"
+    	    +"</tr>";
+    	    
+    	    button = "";
     	    //table +="<tr>\n <td><c:out value=\"${"+wager.getEventTitle()+"}\" /></td>\n</tr>";
     	}	
     	return table;

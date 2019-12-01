@@ -27,6 +27,9 @@ public class SportEvent {
     //@JoinColumn(name = "result_id")
     Result result;
 
+    @Enumerated(EnumType.STRING)
+    EventType eventtype;
+    
     public void setId(int id) {
         this.id = id;
     }
@@ -74,4 +77,12 @@ public class SportEvent {
     public void setResult(Result result) {
         this.result = result;
     }
+
+	public EventType getEventtype() {
+		return eventtype;
+	}
+
+	public void setEventtype(EventType eventtype) {
+		this.eventtype = eventtype;
+	}
 }

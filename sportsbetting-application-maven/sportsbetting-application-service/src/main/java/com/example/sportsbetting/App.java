@@ -48,6 +48,7 @@ public  class App {
         calculateResults();
         this.player = sportsBettingService.findPlayer();
 
+        this.sportsBettingService.updatePlayer(player.getName(), player.getBirth().toString(), player.getAccountNumber().toString(), player.getCurrency().toString(), player.getBalance().toString());
         printResults();
 
 

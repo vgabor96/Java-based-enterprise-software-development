@@ -1,6 +1,7 @@
 package com.example.sportsbetting.builder;
 
 import com.example.sportsbetting.domain.Bet;
+import com.example.sportsbetting.domain.EventType;
 import com.example.sportsbetting.domain.Result;
 import com.example.sportsbetting.domain.SportEvent;
 
@@ -14,6 +15,7 @@ public class SportEventBuilder {
     LocalDateTime endDate;
     List<Bet> bets;
     Result result;
+    EventType eventtype;
 
     public SportEventBuilder(String title) {
         this.title = title;
@@ -38,6 +40,11 @@ public class SportEventBuilder {
         this.result = result;
         return this;
     }
+    
+    public SportEventBuilder eventtype(EventType eventtype){
+        this.eventtype = eventtype;
+        return this;
+    }
 
     public SportEvent build(){
 
@@ -47,6 +54,7 @@ public class SportEventBuilder {
         sportEvent.setEndDate(this.endDate);
         sportEvent.setBets(this.bets);
         sportEvent.setResult(this.result);
+        sportEvent.setEventtype(this.eventtype);
 
         return sportEvent;
     }
