@@ -100,6 +100,26 @@ public class HomeController {
 		
 	  }
 	  
+	  @RequestMapping(value="/delete", method = RequestMethod.POST)
+	  public void DeleteData(HttpServletRequest request,HttpServletResponse response )
+	  { String url="welcome";
+		 
+			  
+			
+			 
+		    try {
+		    	String pa = request.getParameter("delete");
+		    	this.service.DeleteWager(Integer.parseInt(pa));
+				response.sendRedirect(url);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		  
+		 
+		
+	  }
+	  
 
 }		
 

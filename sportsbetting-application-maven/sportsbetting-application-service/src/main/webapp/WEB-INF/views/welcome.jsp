@@ -91,7 +91,7 @@
   </div>
   <input name="inputbalance" value ="${player.getBalance()}" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
 </div>
-   <input type="submit" value="Send">
+   <input name="Save" class="btn btn-primary" type="submit" value="Send">
   </div>
   </form>
 </div>
@@ -118,7 +118,10 @@
     </tr>
   </thead>
   <tbody>
-	${wagers}
+  <form action="/sportsbetting-application-service/delete" method="post">
+  ${wagers}
+
+	</form>
   </tbody>
 </table>
 </div>

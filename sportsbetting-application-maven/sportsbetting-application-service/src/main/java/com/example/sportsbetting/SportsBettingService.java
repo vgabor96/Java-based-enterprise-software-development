@@ -170,7 +170,7 @@ public  class SportsBettingService {
         		.build();
         Wager w2 =  new WagerBuilder(BigDecimal.valueOf(1000))
         		.timestampCreated(LocalDateTime.parse("2020-01-01 13:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
-        		.processed(true)
+        		.processed(false)
         		.win(false)
         		.currency(Currency.HUF)
         		.player(player)
@@ -367,7 +367,8 @@ public  class SportsBettingService {
     	 
     		 if(!wager.isProcessed())
        	  		{
-    			 button = "<button id=\"wager_"+wager.getId()+" type=\"button\" class=\"btn btn-primary\">Remove</button>";
+    			 button = "<input name=\"delete\" type=\"submit\" class=\"btn btn-primary\" value=\""+wager.getId()+"\">Remove</input>";
+    			 //button = "<button name=\""+wager.getId()+" type=\"button\" class=\"btn btn-primary\">Remove</button>";
        	  		}
     		i++;
     	    table +="<tr>\n <td>"
@@ -390,6 +391,19 @@ public  class SportsBettingService {
       
     }
 
+    public Boolean DeleteWager(int id){
+
+    	try {
+    		this.wagerRepository.deleteById(id);
+    		return true;
+    	}
+    	catch(Exception e) {
+    		return false;
+    	}        	
+      
+    }
+
+    
     private Wager Randomwinner()
     {
         List<Wager> wagers = wagerRepository.findAll();
