@@ -36,10 +36,14 @@
                 <div th:if="${param.logout}" class="alert alert-success"> 
                     You have been logged out.
                 </div>
-                
-                <input placeholder="Email" type="text" id="username" name="username"/>        
+                <div>
+                  <input placeholder="Email" type="text" id="username" name="username"/>        
+                </div>
               
+              <div>
                 <input placeholder="Password" type="password" id="password" name="password"/>    
+              </div>
+              
                 <div class="form-actions">
                     <button  type="submit" class="btn btn-primary">Log in</button>
                 </div>
