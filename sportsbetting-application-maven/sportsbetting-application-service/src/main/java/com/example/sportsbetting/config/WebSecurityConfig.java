@@ -84,15 +84,18 @@ public class WebSecurityConfig
   
   protected void configure(HttpSecurity http) throws Exception {
 	    http.authorizeRequests()
-	      .antMatchers("/", "/home","/welcome","/add").access("hasRole('USER')")
+	      .antMatchers("/", "/login","/welcome","/add").access("hasRole('USER')")
 	      .antMatchers("/admin/**").hasRole("ADMIN")
 	      .and()
 	      .csrf().disable()
-	      // some more method calls
 	      .formLogin()
-	      .loginPage("/home")
+	      .loginPage("/login")
 	      .permitAll()
-	      .successHandler(myAuthenticationSuccessHandler());
+	      .successHandler(myAuthenticationSuccessHandler())
+	      .and()
+	      .logout()
+          .logoutUrl("/logout")
+          .logoutSuccessUrl("/login");
 	}
   
 

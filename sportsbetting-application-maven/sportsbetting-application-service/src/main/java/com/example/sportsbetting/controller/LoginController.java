@@ -39,19 +39,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.converter.ResourceHttpMessageConverter;
 
 @Controller
-public class HomeController {
+public class LoginController {
 	
 	
 	@Autowired
 	private SportsBettingService service;
 
 	  @GetMapping("/")
-	    public String homeInit(Locale locale, Model model) {
-	        return "home";
+	    public String loginInit(Locale locale, Model model) {
+	        return "login";
 	    }
-	  @GetMapping("/home")
-	    public String homeIniti(Locale locale, Model model) {
-	        return "home";
+	  @GetMapping("/login")
+	    public String loginIniti(Locale locale, Model model) {
+	        return "login";
 	    }
 
 	  

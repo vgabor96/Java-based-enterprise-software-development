@@ -27,7 +27,7 @@
   <h5 class="card-header text-white bg-primary mb-3">Login</h5>
   <div class="card-body">
 
- <form name="f" th:action="@{/login}" method="post">               
+ <form name="f" th:action="@{/welcome}" method="post">               
             <fieldset>
                 <legend>Please Login</legend>
                 <div th:if="${param.error}" class="alert alert-error">    

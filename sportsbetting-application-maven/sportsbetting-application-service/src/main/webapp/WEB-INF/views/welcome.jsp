@@ -46,7 +46,10 @@
  
     </ul>
   </div>
-    <button type="button" class="btn btn-outline-light" style="float: right;">Logout</button>
+   <form action="/sportsbetting-application-service/logout" method="post">
+   <button type="submit" class="btn btn-outline-light" style="float: right;">Logout</button>
+	</form>
+   
 </nav>
 
 
