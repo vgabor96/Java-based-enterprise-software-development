@@ -1,8 +1,12 @@
 package com.example.sportsbetting.config;
 
+import javax.inject.Inject;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -14,11 +18,19 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import com.example.sportsbetting.SportsBettingService;
+
 @Configuration
 @EnableWebSecurity
+@ComponentScan(basePackages = { "com.example.sportsbetting"})
+@Import(SportsBettingService.class)
 public class WebSecurityConfig
    extends WebSecurityConfigurerAdapter {
 
+	
+	@Autowired
+	private SportsBettingService service;
+	
 	 @Bean("authenticationManager")
 	    @Override
 	    public AuthenticationManager authenticationManagerBean() throws Exception {
@@ -30,28 +42,32 @@ public class WebSecurityConfig
 	        return new MyAuthenticationSuccessHandler();
 	    }
 	
-  @Autowired
-  public void configureGlobal(AuthenticationManagerBuilder auth) {
-    try {
-		auth
-		  .inMemoryAuthentication()
-		    .withUser("user").password("{noop}password").roles("USER");
-	} catch (Exception e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-  }
-  
-//  @Bean
-//  public UserDetailsService userDetailsService() {
-//
-//      User.UserBuilder users = User.withDefaultPasswordEncoder();
-//      InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-//      manager.createUser(users.username("user").password("password").roles("USER").build());
-//      manager.createUser(users.username("admin").password("password").roles("USER", "ADMIN").build());
-//      return manager;
-//
+//  @Autowired
+//  public void configureGlobal(AuthenticationManagerBuilder auth) {
+//    try {
+//		auth
+//		  .inMemoryAuthentication()
+//		    .withUser("user").password("{noop}password").roles("USER");
+//	} catch (Exception e) {
+//		// TODO Auto-generated catch block
+//		e.printStackTrace();
+//	}
 //  }
+  
+  @Bean
+  public UserDetailsService userDetailsService() {
+
+      User.UserBuilder users = User.withDefaultPasswordEncoder();
+      InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
+      manager.createUser(users.username("user").password("password").roles("USER").build());
+      for(com.example.sportsbetting.domain.User user : service.findAllPlayers())	 {
+    	  manager.createUser(users.username(user.getEmail()).password(user.getPassword()).roles("USER").build());
+      }
+    	  
+      manager.createUser(users.username("admin").password("password").roles("USER", "ADMIN").build());
+      return manager;
+
+  }
 	
 	/*@Autowired
 	private DataSource dataSource;d

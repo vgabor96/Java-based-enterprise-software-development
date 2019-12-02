@@ -256,7 +256,7 @@ public  class SportsBettingService {
 
         tr.commit();
 */
-
+        
 
     }
 
@@ -361,6 +361,13 @@ public  class SportsBettingService {
         return  wagerRepository.findAll();
     }
     
+    @Transactional
+    public List<User>findAllPlayers()  {
+
+
+        return  this.userRepository.findAll();
+    }
+    
     public String TableWagers(){
 
     	int i = 0;
@@ -368,44 +375,47 @@ public  class SportsBettingService {
     	String button = "";
     	for (Wager wager : wagerRepository.findAll()) 
     	{ 
+//    		if(wager.getPlayer().getId() == playerid) {
+    			String wagerwin = "";
+        		String wagerprocessed = "";
+        		
+        		wagerwin = wager.isWin() ? "Yes" : "No";
+        		wagerprocessed = wager.isProcessed() ? "Yes" : "-";
+        		
+        		if(!wager.isProcessed()){
+        			wagerwin = "-";
+        		}
+        	
+        		wager.isWin();
+        
+        	   		
+        		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        		LocalDateTime dateTime = wager.getOdd().getOutcome().getBet().getEvent().getStartDate();
+        		String formattedDateTime = dateTime.format(formatter); // "1986-04-08 12:30"
+        		 if(!wager.isProcessed())
+           	  		{
+        			 button = "<button name=\"delete\" type=\"submit\" class=\"btn btn-primary\" value=\""+wager.getId()+"\">Remove</button>";
+        			 //button = "<button name=\""+wager.getId()+" type=\"button\" class=\"btn btn-primary\">Remove</button>";
+           	  		}
+        		i++;
+        	    table +="<tr>\n <td>"
+        	    +button+"</td>\n <th>"
+        		+i+"</th>\n <td>"
+        	    +wager.getOdd().getOutcome().getBet().getEvent().getTitle()+" - "+formattedDateTime+"</td>\n <td>"
+        	    +wager.getOdd().getOutcome().getBet().getEvent().getEventtype()+"</td>\n <td>"
+        	    +wager.getOdd().getOutcome().getBet().getType()+"</td>\n <td>"
+        	    +wager.getOdd().getOutcome().getDescription()+"</td>\n <td>"
+        	    +"1:"+wager.getOdd().getValue()+"</td>\n <td>"
+        	    +wager.getAmount()+" "+wager.getCurrency()+"</td>\n <td>"
+        	    +wagerwin+"</td>\n <td>"
+        	    +wagerprocessed+"</td>\n <td>"
+        	    +"</tr>";
+        	    
+        	    button = "";
+        	    //table +="<tr>\n <td><c:out value=\"${"+wager.getEventTitle()+"}\" /></td>\n</tr>";
+//    		}
     		
-    		String wagerwin = "";
-    		String wagerprocessed = "";
     		
-    		wagerwin = wager.isWin() ? "Yes" : "No";
-    		wagerprocessed = wager.isProcessed() ? "Yes" : "-";
-    		
-    		if(!wager.isProcessed()){
-    			wagerwin = "-";
-    		}
-    	
-    		wager.isWin();
-    
-    	   		
-    		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-    		LocalDateTime dateTime = wager.getOdd().getOutcome().getBet().getEvent().getStartDate();
-    		String formattedDateTime = dateTime.format(formatter); // "1986-04-08 12:30"
-    		 if(!wager.isProcessed())
-       	  		{
-    			 button = "<button name=\"delete\" type=\"submit\" class=\"btn btn-primary\" value=\""+wager.getId()+"\">Remove</button>";
-    			 //button = "<button name=\""+wager.getId()+" type=\"button\" class=\"btn btn-primary\">Remove</button>";
-       	  		}
-    		i++;
-    	    table +="<tr>\n <td>"
-    	    +button+"</td>\n <th>"
-    		+i+"</th>\n <td>"
-    	    +wager.getOdd().getOutcome().getBet().getEvent().getTitle()+" - "+formattedDateTime+"</td>\n <td>"
-    	    +wager.getOdd().getOutcome().getBet().getEvent().getEventtype()+"</td>\n <td>"
-    	    +wager.getOdd().getOutcome().getBet().getType()+"</td>\n <td>"
-    	    +wager.getOdd().getOutcome().getDescription()+"</td>\n <td>"
-    	    +"1:"+wager.getOdd().getValue()+"</td>\n <td>"
-    	    +wager.getAmount()+" "+wager.getCurrency()+"</td>\n <td>"
-    	    +wagerwin+"</td>\n <td>"
-    	    +wagerprocessed+"</td>\n <td>"
-    	    +"</tr>";
-    	    
-    	    button = "";
-    	    //table +="<tr>\n <td><c:out value=\"${"+wager.getEventTitle()+"}\" /></td>\n</tr>";
     	}	
     	return table;
       

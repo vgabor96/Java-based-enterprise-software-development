@@ -81,21 +81,19 @@ public class LoginController {
 	    }
 	  @RequestMapping(value="/add", method = RequestMethod.POST)
 	  public void AddedData(HttpServletRequest request,HttpServletResponse response )
-	  { String url="welcome";
-		  if(!this.service.updatePlayer(request.getParameter("inputname")
-				  ,request.getParameter("inputbirth")
-				  , request.getParameter("inputaccountnumber")
-				  , request.getParameter("inputcurrency")
-				  , request.getParameter("inputbalance")))
+	  { 
+		  
 			  
-		  {
-			  
-			  url= "notwelcome";
-		  }
+		 
 			 
 		    try {
-				response.sendRedirect(url);
-			} catch (IOException e) {
+		    	this.service.updatePlayer(request.getParameter("inputname")
+						  ,request.getParameter("inputbirth")
+						  , request.getParameter("inputaccountnumber")
+						  , request.getParameter("inputcurrency")
+						  , request.getParameter("inputbalance"));
+				response.sendRedirect("welcome");
+			} catch (Exception e) {
 				
 				e.printStackTrace();
 			}
