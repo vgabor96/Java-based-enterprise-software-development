@@ -1,5 +1,7 @@
 com\example\sportsbetting\App.class
+com\example\sportsbetting\config\SecurityWebApplicationInitializer.class
 com\example\sportsbetting\config\JpaConfig.class
+com\example\sportsbetting\config\WebSecurityConfig.class
 com\example\sportsbetting\AppSpring.class
 com\example\sportsbetting\config\WebMvcConfig.class
 com\example\sportsbetting\controller\HomeController.class

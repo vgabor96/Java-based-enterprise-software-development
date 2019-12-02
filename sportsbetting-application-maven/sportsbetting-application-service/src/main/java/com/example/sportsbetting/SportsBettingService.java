@@ -367,7 +367,7 @@ public  class SportsBettingService {
     	 
     		 if(!wager.isProcessed())
        	  		{
-    			 button = "<input name=\"delete\" type=\"submit\" class=\"btn btn-primary\" value=\""+wager.getId()+"\">Remove</input>";
+    			 button = "<button name=\"delete\" type=\"submit\" class=\"btn btn-primary\" value=\""+wager.getId()+"\">Remove</button>";
     			 //button = "<button name=\""+wager.getId()+" type=\"button\" class=\"btn btn-primary\">Remove</button>";
        	  		}
     		i++;

@@ -7,13 +7,15 @@ public class WebAppInitializer extends
  
    @Override
    protected Class<?>[] getRootConfigClasses() {
-      return new Class[] { };
+      return new Class[] { WebSecurityConfig.class};
    }
  
    @Override
    protected Class<?>[] getServletConfigClasses() {
-      return new Class[] { WebMvcConfig.class };
+      return new Class[] { WebMvcConfig.class};
    }
+   
+
  
    @Override
    protected String[] getServletMappings() {
