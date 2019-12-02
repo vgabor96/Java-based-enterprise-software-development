@@ -287,7 +287,7 @@ public  class SportsBettingService {
     			    
     			    Player player = this.findPlayer();
     			    player.setName(playername);
-    			   player.setBirth(playerbirth);
+    			    player.setBirth(playerbirth);
     			    player.setAccountNumber(playeraccountnumber);
     			    player.setCurrency(playerCurrency);
     			    player.setBalance(playerbalance);
@@ -365,6 +365,9 @@ public  class SportsBettingService {
     	for (Wager wager : wagerRepository.findAll()) 
     	{ 
     	 
+    		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+    		LocalDateTime dateTime = wager.getOdd().getOutcome().getBet().getEvent().getStartDate();
+    		String formattedDateTime = dateTime.format(formatter); // "1986-04-08 12:30"
     		 if(!wager.isProcessed())
        	  		{
     			 button = "<button name=\"delete\" type=\"submit\" class=\"btn btn-primary\" value=\""+wager.getId()+"\">Remove</button>";
@@ -374,7 +377,7 @@ public  class SportsBettingService {
     	    table +="<tr>\n <td>"
     	    +button+"</td>\n <th>"
     		+i+"</th>\n <td>"
-    	    +wager.getOdd().getOutcome().getBet().getEvent().getTitle()+"</td>\n <td>"
+    	    +wager.getOdd().getOutcome().getBet().getEvent().getTitle()+" - "+formattedDateTime+"</td>\n <td>"
     	    +wager.getOdd().getOutcome().getBet().getEvent().getEventtype()+"</td>\n <td>"
     	    +wager.getOdd().getOutcome().getBet().getType()+"</td>\n <td>"
     	    +wager.getOdd().getOutcome().getDescription()+"</td>\n <td>"
