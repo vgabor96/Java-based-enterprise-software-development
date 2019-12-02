@@ -20,29 +20,30 @@
 </div>
 
 <div class="container">
- <h2 class="display-2">Login or Register to start!</h2>
+ <h4 class="display-3">Login or Register to start!</h4>
  </div>
    <div class="container">
  <div class="card border-primary mb-3">
-  <h5 class="card-header text-white bg-primary mb-3">Login</h5>
+  <h4 class="card-header text-white bg-primary mb-3">Login</h4>
   <div class="card-body">
 
  <form name="f" th:action="@{/welcome}" method="post">               
             <fieldset>
-                <legend>Please Login</legend>
-                <div th:if="${param.error}" class="alert alert-error">    
-                    Invalid username and password.
-                </div>
-                <div th:if="${param.logout}" class="alert alert-success"> 
-                    You have been logged out.
-                </div>
-                <div>
-                  <input placeholder="Email" type="text" id="username" name="username"/>        
-                </div>
               
-              <div>
-                <input placeholder="Password" type="password" id="password" name="password"/>    
-              </div>
+               
+                    <div class="input-group mb-3">
+  					<div class="input-group-prepend">
+  
+  			</div>
+  			<input  placeholder="Email" type="text" id="username" name="username" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+			</div>
+              
+               <div class="input-group mb-3">
+  					<div class="input-group-prepend">
+  			</div>
+  			<input placeholder="Password" type="password" id="password" name="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+			</div>
+             
               
                 <div class="form-actions">
                     <button  type="submit" class="btn btn-primary">Log in</button>

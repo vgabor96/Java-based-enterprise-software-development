@@ -1,6 +1,10 @@
 package com.example.sportsbetting.domain;
 
 import javax.persistence.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 

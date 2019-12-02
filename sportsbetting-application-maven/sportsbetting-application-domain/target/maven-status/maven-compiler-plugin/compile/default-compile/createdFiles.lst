@@ -2,6 +2,7 @@ com\example\sportsbetting\domain\User.class
 com\example\sportsbetting\repository\SportEventRepository.class
 com\example\sportsbetting\repository\PlayerRepository.class
 com\example\sportsbetting\domain\Bet.class
+com\example\sportsbetting\repository\UserRepository.class
 com\example\sportsbetting\domain\OutcomeOdd.class
 com\example\sportsbetting\repository\OutComeOddRepository.class
 com\example\sportsbetting\domain\BetType.class
@@ -13,6 +14,7 @@ com\example\sportsbetting\repository\BetRepository.class
 com\example\sportsbetting\domain\Outcome.class
 com\example\sportsbetting\domain\Player.class
 com\example\sportsbetting\domain\EventType.class
+com\example\sportsbetting\builder\UserBuilder.class
 com\example\sportsbetting\builder\PlayerBuilder.class
 com\example\sportsbetting\domain\TennisSportEvent.class
 com\example\sportsbetting\domain\Wager.class

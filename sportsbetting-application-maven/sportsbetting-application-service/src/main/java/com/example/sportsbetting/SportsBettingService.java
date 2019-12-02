@@ -66,6 +66,17 @@ public  class SportsBettingService {
 
          */
 
+    	 /*User user = new UserBuilder("Laszlo")
+    			 .birth(LocalDate.of(1997, 8, 13))
+    			 .accountnumber(12345678)
+    			 .currency(Currency.HUF)
+    			 .balance(BigDecimal.valueOf(9999))
+    			 .
+    			 .build();
+    	 */
+    	 
+    	
+    	 
     	 Player player = new PlayerBuilder("Laszlo")
     			 .birth(LocalDate.of(1997, 8, 13))
     			 .accountnumber(12345678)
@@ -364,7 +375,19 @@ public  class SportsBettingService {
     	String button = "";
     	for (Wager wager : wagerRepository.findAll()) 
     	{ 
-    	 
+    		String wagerwin = "";
+    		String wagerprocessed = "";
+    		
+    		wagerwin = wager.isWin() ? "Yes" : "No";
+    		wagerprocessed = wager.isProcessed() ? "Yes" : "-";
+    		
+    		if(!wager.isProcessed()){
+    			wagerwin = "-";
+    		}
+    	
+    		wager.isWin();
+    
+    	   		
     		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
     		LocalDateTime dateTime = wager.getOdd().getOutcome().getBet().getEvent().getStartDate();
     		String formattedDateTime = dateTime.format(formatter); // "1986-04-08 12:30"
@@ -383,8 +406,8 @@ public  class SportsBettingService {
     	    +wager.getOdd().getOutcome().getDescription()+"</td>\n <td>"
     	    +"1:"+wager.getOdd().getValue()+"</td>\n <td>"
     	    +wager.getAmount()+" "+wager.getCurrency()+"</td>\n <td>"
-    	    +wager.isWin()+"</td>\n <td>"
-    	    +wager.isProcessed()+"</td>\n <td>"
+    	    +wagerwin+"</td>\n <td>"
+    	    +wagerprocessed+"</td>\n <td>"
     	    +"</tr>";
     	    
     	    button = "";

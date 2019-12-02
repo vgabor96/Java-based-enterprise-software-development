@@ -1,4 +1,6 @@
 package com.example.sportsbetting.domain;
+
+
 public class User extends Player{
 
     String email;
@@ -19,4 +21,20 @@ public class User extends Player{
     public void setPassword(String password) {
         this.password = password;
     }
+    public User(String email, String password, Player player) {
+    	this.setEmail(email);
+    	this.setPassword(password);
+    }
+    
+    public void setPlayersparameters(Player player) {
+    	this.setAccountNumber(player.getAccountNumber());
+    	this.setBalance(player.getBalance());
+    	this.setBirth(player.getBirth());
+    	this.setCurrency(player.getCurrency());
+    	this.setId(player.getId());
+    	this.setName(player.getName());
+    	
+    	
+    }
+    
 }

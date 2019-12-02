@@ -95,7 +95,7 @@ public class LoginController {
 		    try {
 				response.sendRedirect(url);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}
 		  
@@ -115,7 +115,7 @@ public class LoginController {
 		    	this.service.DeleteWager(Integer.parseInt(pa));
 				response.sendRedirect(url);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}
 		  
