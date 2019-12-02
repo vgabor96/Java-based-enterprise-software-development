@@ -1,6 +1,8 @@
 package com.example.sportsbetting.domain;
 
+import javax.persistence.Entity;
 
+@Entity
 public class User extends Player{
 
     String email;
@@ -8,6 +10,10 @@ public class User extends Player{
 
     public String getEmail() {
         return email;
+    }
+    
+    public User() {
+    
     }
 
     public void setEmail(String email) {
@@ -24,6 +30,7 @@ public class User extends Player{
     public User(String email, String password, Player player) {
     	this.setEmail(email);
     	this.setPassword(password);
+    	this.setPlayersparameters(player);
     }
     
     public void setPlayersparameters(Player player) {

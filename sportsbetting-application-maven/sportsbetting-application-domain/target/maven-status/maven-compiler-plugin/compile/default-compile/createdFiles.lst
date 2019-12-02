@@ -14,7 +14,6 @@ com\example\sportsbetting\repository\BetRepository.class
 com\example\sportsbetting\domain\Outcome.class
 com\example\sportsbetting\domain\Player.class
 com\example\sportsbetting\domain\EventType.class
-com\example\sportsbetting\builder\UserBuilder.class
 com\example\sportsbetting\builder\PlayerBuilder.class
 com\example\sportsbetting\domain\TennisSportEvent.class
 com\example\sportsbetting\domain\Wager.class

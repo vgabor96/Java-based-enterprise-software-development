@@ -16,6 +16,7 @@ import com.example.sportsbetting.builder.SportEventBuilder;
 import com.example.sportsbetting.domain.Currency;
 import com.example.sportsbetting.domain.Player;
 import com.example.sportsbetting.domain.SportEvent;
+import com.example.sportsbetting.domain.User;
 import com.example.sportsbetting.domain.Wager;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -60,7 +61,7 @@ public class LoginController {
 	      
 	       ModelAndView result = new ModelAndView();
 	       
-	       Player player = service.findPlayer();
+	       User player = service.findPlayer();
 	       model.addAttribute("player",player);
 
 	       List<Currency> currencies = new ArrayList<Currency>();

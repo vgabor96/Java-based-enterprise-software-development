@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Player {
 
     @Id

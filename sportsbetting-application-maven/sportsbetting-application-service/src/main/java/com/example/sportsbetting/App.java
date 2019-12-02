@@ -56,7 +56,7 @@ public  class App {
     }
 
     void createPlayer() {
-    Player player = this.view.readPlayerData();
+    User player = this.view.readPlayerData();
     this.sportsBettingService.savePlayer(player);
     this.player = this.sportsBettingService.findPlayer();
     }

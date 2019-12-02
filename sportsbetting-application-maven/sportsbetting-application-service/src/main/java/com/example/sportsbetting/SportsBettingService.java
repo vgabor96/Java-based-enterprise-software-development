@@ -36,14 +36,16 @@ public  class SportsBettingService {
     private  OutComeOddRepository outComeOddRepository;
     @Autowired
     private  OutComeRepository outComeRepository;
-    @Autowired
-    private  PlayerRepository playerRepository;
+    //@Autowired
+    //private  PlayerRepository playerRepository;
     @Autowired
     private  ResultRepository resultRepository;
     @Autowired
     private  SportEventRepository sportEventRepository;
     @Autowired
     private  WagerRepository wagerRepository;
+    @Autowired
+    private UserRepository userRepository;
 
 
     public SportsBettingService() {
@@ -55,34 +57,11 @@ public  class SportsBettingService {
 
     }
      void Initialize(){
-        /*this.player = new Player();
-        this.sportevents = sportsBettingService.findAllSportEvents();
-        this.bets = new ArrayList<Bet>();
-        this.outcomes = new ArrayList<Outcome>();
-        this.outcomeOdds = new ArrayList<OutcomeOdd>();
-        this.wagers = new ArrayList<Wager>();
-        this.selectedOutComeOdd = new OutcomeOdd();
-
-
-         */
-
-    	 /*User user = new UserBuilder("Laszlo")
-    			 .birth(LocalDate.of(1997, 8, 13))
-    			 .accountnumber(12345678)
-    			 .currency(Currency.HUF)
-    			 .balance(BigDecimal.valueOf(9999))
-    			 .
-    			 .build();
-    	 */
+       
     	 
     	
+    	
     	 
-    	 Player player = new PlayerBuilder("Laszlo")
-    			 .birth(LocalDate.of(1997, 8, 13))
-    			 .accountnumber(12345678)
-    			 .currency(Currency.HUF)
-    			 .balance(BigDecimal.valueOf(9999)).build();
-
         LocalDateTime startDate =LocalDateTime.parse("2020-01-01 12:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         LocalDateTime endDate =LocalDateTime.parse("2020-01-01 14:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         //SPORT EVENT
@@ -171,12 +150,20 @@ public  class SportsBettingService {
 
         //Initialize fields with temps
 
+      	 Player player = new PlayerBuilder("Laszlo")
+    			 .birth(LocalDate.of(1997, 8, 13))
+    			 .accountnumber(12345678)
+    			 .currency(Currency.HUF)
+    			 .balance(BigDecimal.valueOf(9999)).build();
+
+    	 
+    	 User user = new User("loa","password",player);
         Wager w1 = new WagerBuilder(BigDecimal.valueOf(100))
         		.timestampCreated(LocalDateTime.parse("2020-01-03 12:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
         		.processed(false)
         		.win(false)
         		.currency(Currency.HUF)
-        		.player(player)
+        		.player(user)
         		.odd(outcomeOdd_1)
         		.build();
         Wager w2 =  new WagerBuilder(BigDecimal.valueOf(1000))
@@ -184,7 +171,7 @@ public  class SportsBettingService {
         		.processed(false)
         		.win(false)
         		.currency(Currency.HUF)
-        		.player(player)
+        		.player(user)
           		.odd(outcomeOdd_2)
         		.build();
         Wager w3 =  new WagerBuilder(BigDecimal.valueOf(500))
@@ -193,7 +180,7 @@ public  class SportsBettingService {
         		.win(true)
         		.currency(Currency.HUF)
         		.odd(outcomeOdd_3)
-        		.player(player)
+        		.player(user)
         		.build();
         		
 
@@ -226,7 +213,8 @@ public  class SportsBettingService {
         newOrder = (Order) q.getSingleResult();
         */
 
-        playerRepository.save(player);
+        //playerRepository.save(player);
+        userRepository.save(user);
         
         sportEventRepository.save(se);
         //SportEvent se2 = sportEventRepository.findAll().get(0);
@@ -320,10 +308,11 @@ public  class SportsBettingService {
         betRepository = context.getBean(BetRepository.class);
         outComeOddRepository = context.getBean(OutComeOddRepository.class);
         outComeRepository = context.getBean(OutComeRepository.class);
-        playerRepository = context.getBean(PlayerRepository.class);
+       // playerRepository = context.getBean(PlayerRepository.class);
         resultRepository = context.getBean(ResultRepository.class);
         sportEventRepository = context.getBean(SportEventRepository.class);
         wagerRepository = context.getBean(WagerRepository.class);
+        userRepository = context.getBean(UserRepository.class);
 
 
 
@@ -336,20 +325,24 @@ public  class SportsBettingService {
        betRepository.count();
        outComeOddRepository.count();
        outComeRepository.count();
-       playerRepository.count();
+      // playerRepository.count();
        resultRepository.count();
        sportEventRepository.count();
        wagerRepository.count();
+       userRepository.count();
 
     }
 
     public void savePlayer(Player player){
         //this.player = player;
-        playerRepository.save(player);
+    	User user = userRepository.findById(player.getId()).get();
+    	user.setPlayersparameters(player);
+    	userRepository.save(user);
+        
     }
-    public Player findPlayer() {
+    public User findPlayer() {
 
-        return playerRepository.findAll().get(0);
+        return userRepository.findAll().get(0);
     }
     @Transactional
     public  List<SportEvent>  findAllSportEvents() {
@@ -375,6 +368,7 @@ public  class SportsBettingService {
     	String button = "";
     	for (Wager wager : wagerRepository.findAll()) 
     	{ 
+    		
     		String wagerwin = "";
     		String wagerprocessed = "";
     		
@@ -440,7 +434,7 @@ public  class SportsBettingService {
     }
 
     public void CalculateResults() {
-        if (wagerRepository.count()>0 && playerRepository.count()>0) {
+        if (wagerRepository.count()>0 && userRepository.count()>0) {
             Wager wg = Randomwinner();
             ArrayList<Outcome> winneroutcomes = new ArrayList<Outcome>();
             Result r = new Result();
