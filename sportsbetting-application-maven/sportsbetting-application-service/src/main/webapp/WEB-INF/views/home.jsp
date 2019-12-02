@@ -27,18 +27,30 @@
   <h5 class="card-header text-white bg-primary mb-3">Login</h5>
   <div class="card-body">
 
-  <form>
-  <div class="form-group">
-    <input placeholder="Email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-  </div>
-  <div class="form-group">
-    <input type="password" placeholder="Password" class="form-control" id="exampleInputPassword1">
-  </div>
-    <a href="#" class="btn btn-primary">Login</a>
-    </form>
+ <form name="f" th:action="@{/login}" method="post">               
+            <fieldset>
+                <legend>Please Login</legend>
+                <div th:if="${param.error}" class="alert alert-error">    
+                    Invalid username and password.
+                </div>
+                <div th:if="${param.logout}" class="alert alert-success"> 
+                    You have been logged out.
+                </div>
+                
+                <input placeholder="Email" type="text" id="username" name="username"/>        
+              
+                <input placeholder="Password" type="password" id="password" name="password"/>    
+                <div class="form-actions">
+                    <button  type="submit" class="btn btn-primary">Log in</button>
+                </div>
+            </fieldset>
+        </form>
   </div>
 </div>
 </div> 
+
+       
+
 
 
 </body>

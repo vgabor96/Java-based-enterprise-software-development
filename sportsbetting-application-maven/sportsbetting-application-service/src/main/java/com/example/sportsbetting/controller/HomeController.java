@@ -49,7 +49,10 @@ public class HomeController {
 	    public String homeInit(Locale locale, Model model) {
 	        return "home";
 	    }
-	  
+	  @GetMapping("/home")
+	    public String homeIniti(Locale locale, Model model) {
+	        return "home";
+	    }
 
 	  
 	  @RequestMapping(value = "/welcome", method = RequestMethod.GET )

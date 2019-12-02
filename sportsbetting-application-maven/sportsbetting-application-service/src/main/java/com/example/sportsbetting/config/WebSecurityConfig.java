@@ -90,6 +90,8 @@ public class WebSecurityConfig
 	      .csrf().disable()
 	      // some more method calls
 	      .formLogin()
+	      .loginPage("/home")
+	      .permitAll()
 	      .successHandler(myAuthenticationSuccessHandler());
 	}
   
