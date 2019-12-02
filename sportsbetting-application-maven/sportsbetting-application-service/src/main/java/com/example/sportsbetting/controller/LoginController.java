@@ -23,6 +23,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.security.Principal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -57,11 +58,12 @@ public class LoginController {
 
 	  
 	  @RequestMapping(value = "/welcome", method = RequestMethod.GET )
-	    public ModelAndView ShowData(Model model) {
+	    public ModelAndView ShowData(Model model, Principal principal) {
 	      
+		  User user = service.findUserByEmail(principal.getName());
 	       ModelAndView result = new ModelAndView();
 	       
-	       User player = service.findPlayer();
+	       User player = service.findPlayer(user.getId());
 	       model.addAttribute("player",player);
 
 	       List<Currency> currencies = new ArrayList<Currency>();
@@ -70,7 +72,7 @@ public class LoginController {
 	       currencies.add(Currency.EUR);
 	       currencies.add(Currency.USD);
 	       
-	       model.addAttribute("wagers",service.TableWagers());
+	       model.addAttribute("wagers",service.TableWagers(user.getId()));
 	       model.addAttribute("currencies",currencies);
 
 	    
@@ -79,19 +81,22 @@ public class LoginController {
 	       result.setViewName("welcome");
 	        return result;
 	    }
+	  
+	  
+	 
+	  
 	  @RequestMapping(value="/add", method = RequestMethod.POST)
 	  public void AddedData(HttpServletRequest request,HttpServletResponse response )
 	  { 
-		  
-			  
-		 
+		  	 		 
 			 
 		    try {
 		    	this.service.updatePlayer(request.getParameter("inputname")
 						  ,request.getParameter("inputbirth")
 						  , request.getParameter("inputaccountnumber")
 						  , request.getParameter("inputcurrency")
-						  , request.getParameter("inputbalance"));
+						  , request.getParameter("inputbalance")
+						  , request.getParameter("inputid"));
 				response.sendRedirect("welcome");
 			} catch (Exception e) {
 				
@@ -105,9 +110,7 @@ public class LoginController {
 	  @RequestMapping(value="/delete", method = RequestMethod.POST)
 	  public void DeleteData(HttpServletRequest request,HttpServletResponse response )
 	  { String url="welcome";
-		 
-			  
-			
+		 			
 			 
 		    try {
 		    	String pa = request.getParameter("delete");

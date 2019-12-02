@@ -35,7 +35,7 @@ public  class App {
 
     void play() {
         sportevents = sportsBettingService.findAllSportEvents();
-        Player player = this.sportsBettingService.findPlayer();
+        Player player = this.sportsBettingService.findPlayer(0);
         String name = player.getName();
   		String birth = player.getBirth().toString();
   		String accountnumber = player.getAccountNumber().toString();
@@ -46,9 +46,9 @@ public  class App {
         view.printBalance(this.player);
         doBetting();
         calculateResults();
-        this.player = sportsBettingService.findPlayer();
-
-        this.sportsBettingService.updatePlayer(player.getName(), player.getBirth().toString(), player.getAccountNumber().toString(), player.getCurrency().toString(), player.getBalance().toString());
+        this.player = sportsBettingService.findPlayer(0);
+String id =String.valueOf(player.getId());
+        this.sportsBettingService.updatePlayer(player.getName(), player.getBirth().toString(), player.getAccountNumber().toString(), player.getCurrency().toString(), player.getBalance().toString(),id);
         printResults();
 
 
@@ -58,7 +58,7 @@ public  class App {
     void createPlayer() {
     User player = this.view.readPlayerData();
     this.sportsBettingService.savePlayer(player);
-    this.player = this.sportsBettingService.findPlayer();
+    this.player = this.sportsBettingService.findPlayer(0);
     }
 
     void doBetting() {
@@ -99,7 +99,7 @@ public  class App {
     private void WagerCreation() {
         BigDecimal value = BigDecimal.valueOf(0);
         boolean enoughbalance = false;
-        player = sportsBettingService.findPlayer();
+        player = sportsBettingService.findPlayer(0);
         do {
             value = view.readWagerAmount();
             //not integer or negative

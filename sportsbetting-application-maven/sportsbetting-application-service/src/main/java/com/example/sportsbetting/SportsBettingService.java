@@ -158,6 +158,18 @@ public  class SportsBettingService {
 
     	 
     	 User user = new User("loa","password",player);
+    	 
+    	 Player player2 = new PlayerBuilder("Gabor")
+    			 .birth(LocalDate.of(1997, 8, 13))
+    			 .accountnumber(12345678)
+    			 .currency(Currency.EUR)
+    			 .balance(BigDecimal.valueOf(9999)).build();
+
+    	 
+    	 User user2 = new User("loa2","password",player2);
+    	 
+    	 
+    	 
         Wager w1 = new WagerBuilder(BigDecimal.valueOf(100))
         		.timestampCreated(LocalDateTime.parse("2020-01-03 12:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
         		.processed(false)
@@ -171,7 +183,7 @@ public  class SportsBettingService {
         		.processed(false)
         		.win(false)
         		.currency(Currency.HUF)
-        		.player(user)
+        		.player(user2)
           		.odd(outcomeOdd_2)
         		.build();
         Wager w3 =  new WagerBuilder(BigDecimal.valueOf(500))
@@ -214,7 +226,10 @@ public  class SportsBettingService {
         */
 
         //playerRepository.save(player);
+        
+     
         userRepository.save(user);
+        userRepository.save(user2);
         
         sportEventRepository.save(se);
         //SportEvent se2 = sportEventRepository.findAll().get(0);
@@ -260,7 +275,7 @@ public  class SportsBettingService {
 
     }
 
-     public Boolean updatePlayer(String name,String birth, String acc, String Curr, String bal) {
+     public Boolean updatePlayer(String name,String birth, String acc, String Curr, String bal, String id) {
     	 
     	 try	{
     			String playername = name ;    
@@ -284,7 +299,9 @@ public  class SportsBettingService {
     			 
     			    BigDecimal playerbalance = BigDecimal.valueOf(Float.parseFloat(bal)) ;   
     			    
-    			    Player player = this.findPlayer();
+    			    Integer Id = Integer.parseInt(id);
+    			    
+    			    Player player = this.findPlayer(Id);
     			    player.setName(playername);
     			    player.setBirth(playerbirth);
     			    player.setAccountNumber(playeraccountnumber);
@@ -320,6 +337,11 @@ public  class SportsBettingService {
 
     }
 
+    public User findUserByEmail(String name) {
+    	User user =this.userRepository.findByEmailIs(name).get(0);
+    	return user;
+}
+    
     public void ReInitRepos()
     {
        betRepository.count();
@@ -340,9 +362,9 @@ public  class SportsBettingService {
     	userRepository.save(user);
         
     }
-    public User findPlayer() {
+    public User findPlayer(Integer id) {
 
-        return userRepository.findAll().get(0);
+        return userRepository.findById(id).get();
     }
     @Transactional
     public  List<SportEvent>  findAllSportEvents() {
@@ -368,14 +390,14 @@ public  class SportsBettingService {
         return  this.userRepository.findAll();
     }
     
-    public String TableWagers(){
+    public String TableWagers(Integer Id){
 
     	int i = 0;
     	String table = "";
     	String button = "";
     	for (Wager wager : wagerRepository.findAll()) 
     	{ 
-//    		if(wager.getPlayer().getId() == playerid) {
+    		if(wager.getPlayer().getId() == Id) {
     			String wagerwin = "";
         		String wagerprocessed = "";
         		
@@ -413,7 +435,7 @@ public  class SportsBettingService {
         	    
         	    button = "";
         	    //table +="<tr>\n <td><c:out value=\"${"+wager.getEventTitle()+"}\" /></td>\n</tr>";
-//    		}
+   		}
     		
     		
     	}	
@@ -453,7 +475,7 @@ public  class SportsBettingService {
                     wager.setWin(true);
                   winneroutcomes.add(wager.getOdd().getOutcome());
 
-                    findPlayer().setBalance(findPlayer().getBalance().add(wager.getAmount().multiply(wager.getOdd().getValue())));
+                    findPlayer(0).setBalance(findPlayer(0).getBalance().add(wager.getAmount().multiply(wager.getOdd().getValue())));
                     wager.setProcessed(true);
                     saveWager(wager);
                 }

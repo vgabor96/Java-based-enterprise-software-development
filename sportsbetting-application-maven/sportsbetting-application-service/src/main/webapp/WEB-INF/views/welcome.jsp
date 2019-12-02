@@ -100,6 +100,7 @@
   </div>
   <input name="inputbalance" value ="${player.getBalance()}" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
 </div>
+<input value ="${player.getId()}" type="hidden" id="inputid" name="inputid">
    <input name="Save" class="btn btn-primary" type="submit" value="Save">
   </div>
   </form>
