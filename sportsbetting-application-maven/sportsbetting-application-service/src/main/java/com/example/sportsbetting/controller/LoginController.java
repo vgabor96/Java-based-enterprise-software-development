@@ -88,8 +88,7 @@ public class LoginController {
 	  @RequestMapping(value="/add", method = RequestMethod.POST)
 	  public void AddedData(HttpServletRequest request,HttpServletResponse response )
 	  { 
-		  	 		 
-			 
+		  	 		 			 
 		    try {
 		    	this.service.updatePlayer(request.getParameter("inputname")
 						  ,request.getParameter("inputbirth")
@@ -102,9 +101,7 @@ public class LoginController {
 				
 				e.printStackTrace();
 			}
-		  
-		 
-		
+		  	
 	  }
 	  
 	  @RequestMapping(value="/delete", method = RequestMethod.POST)

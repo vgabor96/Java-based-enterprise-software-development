@@ -12,17 +12,17 @@
 </head>
 <body>
 <div class="container">
-<div class="jumbotron" style="background:dark !important">
-  <h1 class="display-2">Welcome to SportsBet!</h1>
-  <p class="lead">Sports betting is the activity of predicting sports result and placing a wager on the outcome.</p>
+<div class="jumbotron" style="background:black  !important">
+  <h1 class="display-2" style="color:white">Welcome to SportsBet!</h1>
+  <p class="lead" style="color:white" >Sports betting is the activity of predicting sports result and placing a wager on the outcome.</p>
   <hr class="my-4">
 </div> 
 </div>
 
 <div class="container">
- <h4 class="display-3">Login or Register to start!</h4>
+ <h4 class="display-3">Login</h4> or <h4 class="display-3">Register</h4> to start!
  </div>
-   <div class="container">
+   <div class="container" style="width:350px;">
  <div class="card border-primary mb-3">
   <h4 class="card-header text-white bg-primary mb-3">Login</h4>
   <div class="card-body">
