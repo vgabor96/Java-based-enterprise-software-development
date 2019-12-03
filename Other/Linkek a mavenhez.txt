@@ -1,7 +1,0 @@
-https://www.mkyong.com/java/how-to-set-java_home-on-windows-10/
-https://www.mkyong.com/maven/how-to-install-maven-in-windows/
-
-
-cd C:\Users\loahc\Documents\GitHub\Java-based-enterprise-software-development\sportsbetting-application-maven
-mvn clean install -e
-java -jar sportsbetting-application-service/target/sportsbetting-application-service-1.0-SNAPSHOT-jar-with-dependencies.jar
