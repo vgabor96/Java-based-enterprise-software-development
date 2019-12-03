@@ -38,9 +38,11 @@
 
  <form name="f" th:action="@{/welcome}" method="post">               
             <fieldset>
-            <div th:if="${param.error}" class="alert alert-error">    
-                    Invalid username and password.
-                </div>
+	<c:if test="${param.error != null}">
+    		<p style='color:red'>
+    			Invalid username and password.
+    		</p>
+    	</c:if>
 		  <div class="input-group mb-3">
   			<input  placeholder="Email" type="text" id="username" name="username" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
 			</div>
