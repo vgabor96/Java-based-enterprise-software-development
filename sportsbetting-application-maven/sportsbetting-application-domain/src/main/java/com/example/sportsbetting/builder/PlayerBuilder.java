@@ -28,7 +28,7 @@ public class PlayerBuilder {
     }
 
     public PlayerBuilder birth(LocalDate birth){
-        this.balance = balance;
+        this.birth = birth;
         return this;
     }
     public PlayerBuilder currency(Currency currency){

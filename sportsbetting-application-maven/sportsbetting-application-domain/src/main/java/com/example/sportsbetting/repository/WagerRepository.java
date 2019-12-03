@@ -9,4 +9,6 @@ import java.util.List;
 public interface WagerRepository extends CrudRepository<Wager,Integer> {
     @Override
     public List<Wager> findAll();
+    
+
 }

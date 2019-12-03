@@ -29,7 +29,7 @@ public class View {
         // this.outComeOdds = new ArrayList<OutcomeOdd>();
     }
 
-    public Player readPlayerData() {
+    public User readPlayerData() {
         Scanner in = new Scanner(System.in);
         String name;
         String sbalance;
@@ -75,7 +75,7 @@ public class View {
         } else {
             currency1 = Currency.HUF;
         }
-        return new PlayerBuilder(name).balance(BigDecimal.valueOf(balance)).currency(currency1).build();
+        return (User)new PlayerBuilder(name).balance(BigDecimal.valueOf(balance)).currency(currency1).build();
     }
 
     public void printWelcomeMessage(Player player) {
