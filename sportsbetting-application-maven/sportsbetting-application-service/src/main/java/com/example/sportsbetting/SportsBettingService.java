@@ -151,19 +151,19 @@ public  class SportsBettingService {
         //Initialize fields with temps
 
       	 Player player = new PlayerBuilder("Laszlo")
-    			 .birth(LocalDate.of(1997, 8, 13))
-    			 .accountnumber(12345678)
+    			 .birth(LocalDate.of(1999, 8, 10))
+    			 .accountnumber(666666)
     			 .currency(Currency.HUF)
-    			 .balance(BigDecimal.valueOf(9999)).build();
+    			 .balance(BigDecimal.valueOf(99956)).build();
 
     	 
     	 User user = new User("loa","password",player);
     	 
     	 Player player2 = new PlayerBuilder("Gabor")
-    			 .birth(LocalDate.of(1997, 8, 13))
+    			 .birth(LocalDate.of(1996, 8, 4))
     			 .accountnumber(12345678)
     			 .currency(Currency.EUR)
-    			 .balance(BigDecimal.valueOf(9999)).build();
+    			 .balance(BigDecimal.valueOf(100)).build();
 
     	 
     	 User user2 = new User("loa2","password",player2);
@@ -178,7 +178,7 @@ public  class SportsBettingService {
         		.player(user)
         		.odd(outcomeOdd_1)
         		.build();
-        Wager w2 =  new WagerBuilder(BigDecimal.valueOf(1000))
+        Wager w2 =  new WagerBuilder(BigDecimal.valueOf(56))
         		.timestampCreated(LocalDateTime.parse("2020-01-01 13:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
         		.processed(false)
         		.win(false)
@@ -186,13 +186,53 @@ public  class SportsBettingService {
         		.player(user2)
           		.odd(outcomeOdd_2)
         		.build();
-        Wager w3 =  new WagerBuilder(BigDecimal.valueOf(500))
+        Wager w3 =  new WagerBuilder(BigDecimal.valueOf(1000))
         		.timestampCreated(LocalDateTime.parse("2020-01-02 13:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
         		.processed(true)
         		.win(true)
         		.currency(Currency.HUF)
         		.odd(outcomeOdd_3)
         		.player(user)
+        		.build();
+        Wager w4 =  new WagerBuilder(BigDecimal.valueOf(20))
+        		.timestampCreated(LocalDateTime.parse("2020-01-02 14:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
+        		.processed(false)
+        		.win(false)
+        		.currency(Currency.HUF)
+        		.odd(outcomeOdd_4)
+        		.player(user2)
+        		.build();
+        Wager w5 =  new WagerBuilder(BigDecimal.valueOf(15))
+        		.timestampCreated(LocalDateTime.parse("2020-01-02 05:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
+        		.processed(false)
+        		.win(false)
+        		.currency(Currency.HUF)
+        		.odd(outcomeOdd_2)
+        		.player(user2)
+        		.build();
+        Wager w6 =  new WagerBuilder(BigDecimal.valueOf(100))
+        		.timestampCreated(LocalDateTime.parse("2020-01-02 05:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
+        		.processed(false)
+        		.win(false)
+        		.currency(Currency.HUF)
+        		.odd(outcomeOdd_1)
+        		.player(user2)
+        		.build();
+        Wager w7 =  new WagerBuilder(BigDecimal.valueOf(10))
+        		.timestampCreated(LocalDateTime.parse("2020-01-02 05:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
+        		.processed(true)
+        		.win(true)
+        		.currency(Currency.HUF)
+        		.odd(outcomeOdd_3)
+        		.player(user2)
+        		.build();
+        Wager w8 =  new WagerBuilder(BigDecimal.valueOf(500))
+        		.timestampCreated(LocalDateTime.parse("2020-01-02 05:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
+        		.processed(true)
+        		.win(false)
+        		.currency(Currency.HUF)
+        		.odd(outcomeOdd_4)
+        		.player(user2)
         		.build();
         		
 
@@ -250,7 +290,11 @@ public  class SportsBettingService {
         wagerRepository.save(w1);
         wagerRepository.save(w2);
         wagerRepository.save(w3);
-
+        wagerRepository.save(w4);
+        wagerRepository.save(w5);
+        wagerRepository.save(w6);
+        wagerRepository.save(w7);
+        wagerRepository.save(w8);
 
         //System.out.println(se3.getTitle());
         /*
