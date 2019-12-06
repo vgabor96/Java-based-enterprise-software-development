@@ -19,12 +19,12 @@ import java.util.List;
 public  class App {
 
     public static SportsBettingService sportsBettingService;
-    View view;
-    Player player;
-    List<SportEvent> sportevents;
-    List<Wager> wagers;
-    List<Result> results;
-    OutcomeOdd selectedOutComeOdd;
+    private View view;
+    private Player player;
+    private List<SportEvent> sportevents;
+    private List<Wager> wagers;
+    private List<Result> results;
+    private  OutcomeOdd selectedOutComeOdd;
     public App(SportsBettingService sportsBettingService, View view) {
         this.sportsBettingService = sportsBettingService;
         this.view = view;
@@ -55,13 +55,13 @@ String id =String.valueOf(player.getId());
 
     }
 
-    void createPlayer() {
+    private void createPlayer() {
     User player = this.view.readPlayerData();
     this.sportsBettingService.savePlayer(player);
     this.player = this.sportsBettingService.findPlayer(0);
     }
 
-    void doBetting() {
+    private void doBetting() {
 
         do {
             this.selectedOutComeOdd = view.selectOutComeOdd(this.sportevents);
@@ -75,12 +75,12 @@ String id =String.valueOf(player.getId());
 
 
     }
-    void calculateResults(){
+    private void calculateResults(){
 
         this.sportsBettingService.CalculateResults();
     }
     @Transactional
-    void printResults() {
+    private void printResults() {
 
 
             view.printResults(this.player, this.wagers);

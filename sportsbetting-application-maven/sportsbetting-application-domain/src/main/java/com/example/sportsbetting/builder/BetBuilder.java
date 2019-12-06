@@ -9,10 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BetBuilder {
-    String description;
-    SportEvent event;
-    BetType type;
-    List<Outcome> outcomes;
+	private String description;
+	private SportEvent event;
+    private BetType type;
+    private List<Outcome> outcomes;
 
     public BetBuilder(String description) {
         this.description = description;
@@ -42,7 +42,4 @@ public class BetBuilder {
         return bet;
     }
 
-    private BetBuilder() {
-
-    }
 }

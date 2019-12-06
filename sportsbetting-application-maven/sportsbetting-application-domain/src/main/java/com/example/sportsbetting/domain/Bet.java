@@ -13,21 +13,21 @@ public class Bet {
     @GeneratedValue
     private int id;
 
-    String description;
+    private String description;
 
     @OneToOne(fetch = FetchType.EAGER)
     //@JoinColumn(name = "event_id")
     //@Cascade(org.hibernate.annotations.CascadeType.MERGE)
-    SportEvent event;
+    private SportEvent event;
 
     @Enumerated(EnumType.STRING)
-    BetType type;
+    private BetType type;
 
 
     @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     //@OneToMany(fetch = FetchType.LAZY)
     //@JoinColumn(name = "bet_id")
-    List<Outcome> outcomes;
+    private List<Outcome> outcomes;
 
     public int getId() {
         return id;

@@ -9,9 +9,9 @@ import java.util.List;
 
 public class OutComeBuilder {
 
-    String description;
-    Bet bet;
-    List<OutcomeOdd> outcomeOdds;
+	private String description;
+	private Bet bet;
+	private List<OutcomeOdd> outcomeOdds;
 
     public OutComeBuilder(String description) {
         this.description = description;
@@ -39,7 +39,4 @@ public class OutComeBuilder {
         return outcome;
     }
 
-    private OutComeBuilder() {
-
-    }
 }

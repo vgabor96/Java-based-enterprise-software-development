@@ -8,10 +8,10 @@ import java.time.LocalDateTime;
 
 public class OutComeOddBuilder {
 
-    BigDecimal value;
-    LocalDateTime validFrom;
-    LocalDateTime validUntil;
-    Outcome outcome;
+	private BigDecimal value;
+	private LocalDateTime validFrom;
+	private LocalDateTime validUntil;
+	private Outcome outcome;
 
     public OutComeOddBuilder(BigDecimal value) {
         this.value = value;
@@ -42,9 +42,5 @@ public class OutComeOddBuilder {
         outcomeOdd.setValidUntil(this.validUntil);
 
         return outcomeOdd;
-    }
-
-    private OutComeOddBuilder() {
-
     }
 }

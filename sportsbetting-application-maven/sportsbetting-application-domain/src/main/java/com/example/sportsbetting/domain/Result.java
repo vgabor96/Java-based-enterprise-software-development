@@ -12,7 +12,7 @@ public class Result {
     @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     //@OneToMany(cascade = CascadeType.ALL)
     //@JoinColumn(name = "result_id")
-    List<Outcome> winnerOutcomes;
+    private List<Outcome> winnerOutcomes;
 
     public int getId() {
         return id;

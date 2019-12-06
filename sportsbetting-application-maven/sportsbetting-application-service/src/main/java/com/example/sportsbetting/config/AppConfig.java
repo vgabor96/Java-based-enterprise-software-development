@@ -18,7 +18,8 @@ import java.util.Locale;
 @Import({SportsBettingService.class, ViewConfig.class, JpaConfig.class})
 public class AppConfig {
 
-    @Inject JpaConfig jpaconfig;
+    @Inject 
+    private JpaConfig jpaconfig;
 
     @Inject
     private SportsBettingService sportsBettingService;

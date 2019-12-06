@@ -56,7 +56,7 @@ public  class SportsBettingService {
 
 
     }
-     void Initialize(){
+    private void Initialize(){
        
     	 
     	

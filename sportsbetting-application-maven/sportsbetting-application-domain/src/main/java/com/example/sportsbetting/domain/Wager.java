@@ -12,20 +12,20 @@ public class Wager {
     @GeneratedValue
     private int id;
 
-    BigDecimal amount;
+    private BigDecimal amount;
     //@Temporal(TemporalType.TIME)
-    LocalDateTime timestampCreated;
+    private LocalDateTime timestampCreated;
     boolean processed;
     boolean win;
     @OneToOne(fetch = FetchType.EAGER)
     //@Cascade(org.hibernate.annotations.CascadeType.MERGE)
     //@JoinColumn(name = "wager_outcomeOdd_id")
-    OutcomeOdd odd;
+    private OutcomeOdd odd;
     @OneToOne(fetch = FetchType.EAGER)
     //@JoinColumn(name = "wager_player_id")
-    Player player;
+    private Player player;
     @Enumerated(EnumType.STRING)
-    Currency currency;
+    private Currency currency;
 
     public int getId() {
         return id;

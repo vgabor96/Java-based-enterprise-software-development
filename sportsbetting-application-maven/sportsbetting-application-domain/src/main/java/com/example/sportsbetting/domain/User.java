@@ -5,8 +5,8 @@ import javax.persistence.Entity;
 @Entity
 public class User extends Player{
 
-    String email;
-    String password;
+	private String email;
+	private String password;
 
     public String getEmail() {
         return email;

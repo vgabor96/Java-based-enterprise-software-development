@@ -10,12 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SportEventBuilder {
-    String title;
-    LocalDateTime startDate;
-    LocalDateTime endDate;
-    List<Bet> bets;
-    Result result;
-    EventType eventtype;
+	private String title;
+	private LocalDateTime startDate;
+	private LocalDateTime endDate;
+	private List<Bet> bets;
+	private Result result;
+	private EventType eventtype;
 
     public SportEventBuilder(String title) {
         this.title = title;
@@ -59,7 +59,4 @@ public class SportEventBuilder {
         return sportEvent;
     }
 
-    private SportEventBuilder() {
-
-    }
 }
