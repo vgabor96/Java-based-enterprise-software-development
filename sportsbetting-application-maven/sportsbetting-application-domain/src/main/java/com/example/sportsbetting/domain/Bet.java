@@ -14,7 +14,7 @@ public class Bet {
 
     private String description;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     private SportEvent event;
 
     @Enumerated(EnumType.STRING)

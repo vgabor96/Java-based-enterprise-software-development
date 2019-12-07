@@ -349,6 +349,13 @@ public  class SportsBettingService {
     }
     
     @Transactional
+    public List<Wager>findAllWagersById(Player player)  {
+
+
+        return  wagerRepository.findByPlayerIs(player);
+    }
+    
+    @Transactional
     public List<User>findAllPlayers()  {
 
 
@@ -405,7 +412,37 @@ public  class SportsBettingService {
     	return table;
       
     }
-
+    public List<List<Object>> WagersToView(Player player){
+		 List<List<Object>> wagers = new ArrayList<List<Object>>();
+		 int i = 0;
+		 for (Wager wager : this.findAllWagersById(player))
+	    	{ 
+			 i++;
+			 List<Object> wagerdata = new ArrayList<Object>();
+			 boolean isbuttonvisible= !wager.isProcessed();
+			 int wagerid = wager.getId();
+	
+				 
+			 wagerdata.add(isbuttonvisible);
+			 wagerdata.add(wagerid);
+			 wagerdata.add(i);
+			 wagerdata.add(wager.getOdd().getOutcome().getBet().getEvent().getTitle()+"-"
+			 +wager.getOdd().getOutcome().getBet().getEvent().getStartDate());
+			 wagerdata.add(wager.getOdd().getOutcome().getBet().getEvent().getEventtype());
+			 wagerdata.add(wager.getOdd().getOutcome().getBet().getType());
+			 wagerdata.add(wager.getOdd().getOutcome().getDescription());
+			 wagerdata.add("1:"+wager.getOdd().getValue());
+			 wagerdata.add(wager.getAmount()+" "+wager.getCurrency());
+			 wagerdata.add(wager.isWin());
+			 wagerdata.add(wager.isProcessed());
+			 wagers.add(wagerdata);
+			 
+			
+	    	}
+		 
+		 return wagers;
+		 
+}
     public Boolean deleteWager(int id){
 
     	try {

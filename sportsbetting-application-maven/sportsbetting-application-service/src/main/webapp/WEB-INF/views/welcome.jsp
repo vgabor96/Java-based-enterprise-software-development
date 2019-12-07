@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page import="com.example.sportsbetting.domain.*" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 
 <html>
 <head>
@@ -138,7 +139,44 @@
   </thead>
   <tbody>
   <form action="/sportsbetting-application-service/delete" method="post">
-  ${wagers}
+  <c:forEach items="${wagers}" var="wager">
+   <tr>
+   <td>
+ <button name="delete" <c:if test="${wager.get(0) == false}"><c:out value="hidden='hidden'"/></c:if>" type="submit" class="btn btn-primary" value="${wager.get(1)}">Remove</button>
+	</td>
+	<td>
+	<b>${wager.get(2)}</b>
+	</td>
+	<td>
+	${wager.get(3)}
+	</td>
+	<td>
+	${wager.get(4)}
+	</td>
+	<td>
+	${wager.get(5)}
+	</td>
+	<td>
+	${wager.get(6)}
+	</td>
+	<td>
+	${wager.get(7)}
+	</td>
+	<td>
+	${wager.get(8)}
+	</td>
+	<td>
+	${wager.get(9)}
+	</td>
+	<td>
+	${wager.get(10)}
+	</td>
+   </tr>
+
+
+ 
+
+  </c:forEach>
 
 	</form>
   </tbody>

@@ -23,7 +23,6 @@ import java.util.Locale;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 
@@ -59,8 +58,8 @@ public class LoginController {
 	       currencies.add(Currency.HUF);
 	       currencies.add(Currency.EUR);
 	       currencies.add(Currency.USD);
-	       
-	       model.addAttribute("wagers",service.tableWagers(user.getId()));
+	    
+	       model.addAttribute("wagers",service.WagersToView(player));
 	       model.addAttribute("currencies",currencies);
 
 	    
@@ -70,8 +69,8 @@ public class LoginController {
 	        return result;
 	    }
 	  
-	  
-	 
+
+	
 	  
 	  @RequestMapping(value="/add", method = RequestMethod.POST)
 	  public void addedData(HttpServletRequest request,HttpServletResponse response )
@@ -93,7 +92,7 @@ public class LoginController {
 	  }
 	  
 	  @RequestMapping(value="/delete", method = RequestMethod.POST)
-	  public void aeleteData(HttpServletRequest request,HttpServletResponse response )
+	  public void deleteData(HttpServletRequest request,HttpServletResponse response )
 	  { String url="welcome";
 		 			
 			 
