@@ -1,17 +1,12 @@
 package com.example.sportsbetting;
 
-import com.example.sportsbetting.builder.BetBuilder;
-import com.example.sportsbetting.builder.OutComeBuilder;
-import com.example.sportsbetting.builder.OutComeOddBuilder;
-import com.example.sportsbetting.builder.SportEventBuilder;
-import com.example.sportsbetting.config.JpaConfig;
+
 import com.example.sportsbetting.domain.*;
 import org.springframework.transaction.annotation.Transactional;
 
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,10 +18,9 @@ public  class App {
     private Player player;
     private List<SportEvent> sportevents;
     private List<Wager> wagers;
-    private List<Result> results;
     private  OutcomeOdd selectedOutComeOdd;
     public App(SportsBettingService sportsBettingService, View view) {
-        this.sportsBettingService = sportsBettingService;
+        App.sportsBettingService = sportsBettingService;
         this.view = view;
         sportevents = new ArrayList<SportEvent>();
         wagers = new ArrayList<Wager>();
@@ -35,12 +29,7 @@ public  class App {
 
     void play() {
         sportevents = sportsBettingService.findAllSportEvents();
-        Player player = this.sportsBettingService.findPlayer(0);
-        String name = player.getName();
-  		String birth = player.getBirth().toString();
-  		String accountnumber = player.getAccountNumber().toString();
-  		String currency = player.getCurrency().toString();
-  		String balance = player.getBalance().toString();
+        Player player = App.sportsBettingService.findPlayer(0);
         createPlayer();
         view.printWelcomeMessage(this.player);
         view.printBalance(this.player);
@@ -48,7 +37,7 @@ public  class App {
         calculateResults();
         this.player = sportsBettingService.findPlayer(0);
 String id =String.valueOf(player.getId());
-        this.sportsBettingService.updatePlayer(player.getName(), player.getBirth().toString(), player.getAccountNumber().toString(), player.getCurrency().toString(), player.getBalance().toString(),id);
+	App.sportsBettingService.updatePlayer(player.getName(), player.getBirth().toString(), player.getAccountNumber().toString(), player.getCurrency().toString(), player.getBalance().toString(),id);
         printResults();
 
 
@@ -57,8 +46,8 @@ String id =String.valueOf(player.getId());
 
     private void createPlayer() {
     User player = this.view.readPlayerData();
-    this.sportsBettingService.savePlayer(player);
-    this.player = this.sportsBettingService.findPlayer(0);
+    App.sportsBettingService.savePlayer(player);
+    this.player = App.sportsBettingService.findPlayer(0);
     }
 
     private void doBetting() {
@@ -77,17 +66,12 @@ String id =String.valueOf(player.getId());
     }
     private void calculateResults(){
 
-        this.sportsBettingService.CalculateResults();
+    	App.sportsBettingService.CalculateResults();
     }
     @Transactional
     private void printResults() {
 
-
             view.printResults(this.player, this.wagers);
-
-
-
-
     }
 
     public static List<Wager> findAllWagers()
@@ -102,6 +86,7 @@ String id =String.valueOf(player.getId());
         player = sportsBettingService.findPlayer(0);
         do {
             value = view.readWagerAmount();
+            
             //not integer or negative
             if (value.compareTo(BigDecimal.valueOf(-1)) <=0)
             {
@@ -117,17 +102,11 @@ String id =String.valueOf(player.getId());
                 wager.setCurrency(player.getCurrency());
                 wager.setOdd(selectedOutComeOdd);
                 wager.setProcessed(false);
-                //wager.setTimestampCreated();
-                //wager.setWin();
                sportsBettingService.saveWager(wager);
-                //this.wagers.add(wager);
                 this.wagers = sportsBettingService.findAllWagers();
-                //this.wagers = sportsBettingService.findAllWagers();
                 view.printWagerSaved(wager);
                 sportsBettingService.savePlayer(player);
                 view.printBalance(this.player);
-
-
             }
 
             else if((value.compareTo(BigDecimal.ZERO) == 0))

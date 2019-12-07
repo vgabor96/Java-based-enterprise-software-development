@@ -1,6 +1,5 @@
 package com.example.sportsbetting.domain;
 
-import org.hibernate.annotations.Cascade;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
@@ -15,13 +14,9 @@ public class Outcome {
     private String description;
 
     @OneToOne(fetch = FetchType.LAZY)
-   // @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
-    //@JoinColumn(name = "bet_id")
     private Bet bet;
 
-    //@OneToMany(fetch = FetchType.LAZY)
     @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    //@JoinColumn(name = "Outcome_id")
     private List<OutcomeOdd> outcomeOdds;
 
     public int getId() {

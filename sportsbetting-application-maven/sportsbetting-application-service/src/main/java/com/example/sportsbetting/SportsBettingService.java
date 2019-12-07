@@ -3,16 +3,9 @@ package com.example.sportsbetting;
 import com.example.sportsbetting.builder.*;
 import com.example.sportsbetting.domain.*;
 import com.example.sportsbetting.repository.*;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
-
-import javax.activation.DataSource;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Query;
 import javax.transaction.Transactional;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -26,8 +19,6 @@ import java.util.Random;
 @Service
 public  class SportsBettingService {
     private Random r;
-    private static List<SportEvent> sportEvents;
-    
     
     
     @Autowired
@@ -36,8 +27,6 @@ public  class SportsBettingService {
     private  OutComeOddRepository outComeOddRepository;
     @Autowired
     private  OutComeRepository outComeRepository;
-    //@Autowired
-    //private  PlayerRepository playerRepository;
     @Autowired
     private  ResultRepository resultRepository;
     @Autowired
@@ -57,11 +46,7 @@ public  class SportsBettingService {
 
     }
     private void Initialize(){
-       
-    	 
-    	
-    	
-    	 
+
         LocalDateTime startDate =LocalDateTime.parse("2020-01-01 12:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         LocalDateTime endDate =LocalDateTime.parse("2020-01-01 14:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         //SPORT EVENT
@@ -234,45 +219,11 @@ public  class SportsBettingService {
         		.odd(outcomeOdd_4)
         		.player(user2)
         		.build();
-        		
-
-
-        /*
-        this.bets.add(bet_1);
-        this.bets.add(bet_2);
-        this.outcomes.add(outcome_1);
-        this.outcomes.add(outcome_2);
-        this.outcomes.add(outcome_3);
-
-         */
-
-        /*this.outcomeOdds.add(outcomeOdd_1);
-        this.outcomeOdds.add(outcomeOdd_2);
-        this.outcomeOdds.add(outcomeOdd_3);
-        this.outcomeOdds.add(outcomeOdd_4);
-
-*/
-
-
-
-
-        //em.persist(se);
-
-
-
-        /*Query q = em.createQuery("SELECT b FROM Bet b JOIN FETCH b.items i WHERE o.id = :id");
-        q.setParameter("id", orderId);
-        newOrder = (Order) q.getSingleResult();
-        */
-
-        //playerRepository.save(player);
-        
      
         userRepository.save(user);
         userRepository.save(user2);
         
         sportEventRepository.save(se);
-        //SportEvent se2 = sportEventRepository.findAll().get(0);
         betRepository.save(bet_1);
         betRepository.save(bet_2);
 
@@ -286,7 +237,6 @@ public  class SportsBettingService {
         outComeOddRepository.save(outcomeOdd_2);
         outComeOddRepository.save(outcomeOdd_3);
         outComeOddRepository.save(outcomeOdd_4);
-        //SportEvent se3 =findAllSportEvents().get(0);
         wagerRepository.save(w1);
         wagerRepository.save(w2);
         wagerRepository.save(w3);
@@ -295,27 +245,6 @@ public  class SportsBettingService {
         wagerRepository.save(w6);
         wagerRepository.save(w7);
         wagerRepository.save(w8);
-
-        //System.out.println(se3.getTitle());
-        /*
-        em.persist(se);
-
-        em.persist(bet_1);
-        em.persist(bet_2);
-
-        em.persist(outcome_1);
-        em.persist(outcome_2);
-        em.persist(outcome_3);
-
-        em.persist(outcomeOdd_1);
-        em.persist(outcomeOdd_2);
-        em.persist(outcomeOdd_3);
-        em.persist(outcomeOdd_4);
-
-
-        tr.commit();
-*/
-        
 
     }
 
@@ -328,15 +257,12 @@ public  class SportsBettingService {
     			   Currency playerCurrency;
     			   switch(Curr) {
     			   case "HUF":
-    			     // code block
     				   playerCurrency = Currency.HUF;
     			     break;
     			   case "EUR":
-    			     // code block
     				   playerCurrency = Currency.EUR;
     			     break;
     			   default:
-    			     // code block
     				   playerCurrency = Currency.USD;
     			 }
     	     
@@ -369,7 +295,6 @@ public  class SportsBettingService {
         betRepository = context.getBean(BetRepository.class);
         outComeOddRepository = context.getBean(OutComeOddRepository.class);
         outComeRepository = context.getBean(OutComeRepository.class);
-       // playerRepository = context.getBean(PlayerRepository.class);
         resultRepository = context.getBean(ResultRepository.class);
         sportEventRepository = context.getBean(SportEventRepository.class);
         wagerRepository = context.getBean(WagerRepository.class);
@@ -391,7 +316,6 @@ public  class SportsBettingService {
        betRepository.count();
        outComeOddRepository.count();
        outComeRepository.count();
-      // playerRepository.count();
        resultRepository.count();
        sportEventRepository.count();
        wagerRepository.count();
@@ -400,7 +324,6 @@ public  class SportsBettingService {
     }
 
     public void savePlayer(Player player){
-        //this.player = player;
     	User user = userRepository.findById(player.getId()).get();
     	user.setPlayersparameters(player);
     	userRepository.save(user);
@@ -412,8 +335,6 @@ public  class SportsBettingService {
     }
     @Transactional
     public  List<SportEvent>  findAllSportEvents() {
-        //sportEvents = sportEventRepository.findAll();
-
         return sportEventRepository.findAll();
     }
     public Wager saveWager(Wager wager){
@@ -461,7 +382,6 @@ public  class SportsBettingService {
         		 if(!wager.isProcessed())
            	  		{
         			 button = "<button name=\"delete\" type=\"submit\" class=\"btn btn-primary\" value=\""+wager.getId()+"\">Remove</button>";
-        			 //button = "<button name=\""+wager.getId()+" type=\"button\" class=\"btn btn-primary\">Remove</button>";
            	  		}
         		i++;
         	    table +="<tr>\n <td>"
@@ -478,7 +398,6 @@ public  class SportsBettingService {
         	    +"</tr>";
         	    
         	    button = "";
-        	    //table +="<tr>\n <td><c:out value=\"${"+wager.getEventTitle()+"}\" /></td>\n</tr>";
    		}
     		
     		

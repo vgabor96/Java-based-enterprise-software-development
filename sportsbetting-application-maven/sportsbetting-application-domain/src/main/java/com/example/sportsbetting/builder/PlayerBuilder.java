@@ -7,11 +7,11 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class PlayerBuilder {
-    String name;
-    Integer accountNumber;
-    BigDecimal balance;
-    LocalDate birth;
-    Currency currency;
+	private String name;
+	private Integer accountNumber;
+	private BigDecimal balance;
+	private LocalDate birth;
+	private Currency currency;
 
     public PlayerBuilder(String name) {
         this.name = name;
@@ -46,9 +46,7 @@ public class PlayerBuilder {
         player.setCurrency(this.currency);
 
         return player;
+        
     }
-
-    private PlayerBuilder() {
-
-    }
+    
 }

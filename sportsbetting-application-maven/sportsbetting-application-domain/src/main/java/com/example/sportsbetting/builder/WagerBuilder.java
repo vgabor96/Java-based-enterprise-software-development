@@ -2,21 +2,9 @@ package com.example.sportsbetting.builder;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.OneToOne;
-
-import com.example.sportsbetting.domain.Bet;
-import com.example.sportsbetting.domain.BetType;
 import com.example.sportsbetting.domain.Currency;
-import com.example.sportsbetting.domain.Outcome;
 import com.example.sportsbetting.domain.OutcomeOdd;
 import com.example.sportsbetting.domain.Player;
-import com.example.sportsbetting.domain.SportEvent;
 import com.example.sportsbetting.domain.Wager;
 
 public class WagerBuilder {

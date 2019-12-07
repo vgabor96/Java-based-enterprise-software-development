@@ -1,6 +1,5 @@
 package com.example.sportsbetting.domain;
 
-import org.hibernate.annotations.Cascade;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
@@ -16,8 +15,6 @@ public class Bet {
     private String description;
 
     @OneToOne(fetch = FetchType.EAGER)
-    //@JoinColumn(name = "event_id")
-    //@Cascade(org.hibernate.annotations.CascadeType.MERGE)
     private SportEvent event;
 
     @Enumerated(EnumType.STRING)
@@ -25,8 +22,6 @@ public class Bet {
 
 
     @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    //@OneToMany(fetch = FetchType.LAZY)
-    //@JoinColumn(name = "bet_id")
     private List<Outcome> outcomes;
 
     public int getId() {

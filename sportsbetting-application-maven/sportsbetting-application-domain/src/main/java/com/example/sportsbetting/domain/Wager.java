@@ -1,6 +1,4 @@
 package com.example.sportsbetting.domain;
-import org.hibernate.annotations.Cascade;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -13,16 +11,12 @@ public class Wager {
     private int id;
 
     private BigDecimal amount;
-    //@Temporal(TemporalType.TIME)
     private LocalDateTime timestampCreated;
     boolean processed;
     boolean win;
     @OneToOne(fetch = FetchType.EAGER)
-    //@Cascade(org.hibernate.annotations.CascadeType.MERGE)
-    //@JoinColumn(name = "wager_outcomeOdd_id")
     private OutcomeOdd odd;
     @OneToOne(fetch = FetchType.EAGER)
-    //@JoinColumn(name = "wager_player_id")
     private Player player;
     @Enumerated(EnumType.STRING)
     private Currency currency;
@@ -66,7 +60,6 @@ public class Wager {
         this.win = win;
     }
 
-    @Transactional
     public OutcomeOdd getOdd() {
 
         odd.getOutcome().getBet().getId();

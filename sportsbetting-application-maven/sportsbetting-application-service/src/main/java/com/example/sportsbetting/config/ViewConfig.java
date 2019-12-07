@@ -1,7 +1,5 @@
 package com.example.sportsbetting.config;
 
-import com.example.sportsbetting.App;
-import com.example.sportsbetting.SportsBettingService;
 import com.example.sportsbetting.View;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;

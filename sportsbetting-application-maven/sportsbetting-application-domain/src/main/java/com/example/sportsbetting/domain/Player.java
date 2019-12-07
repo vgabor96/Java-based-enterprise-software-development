@@ -2,9 +2,6 @@ package com.example.sportsbetting.domain;
 
 import javax.persistence.*;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -18,7 +15,6 @@ public class Player {
     private String name;
     private Integer accountNumber;
     private BigDecimal balance;
-    //@Temporal(TemporalType.DATE)
     private LocalDate birth;
     @Enumerated(EnumType.STRING)
     Currency currency;

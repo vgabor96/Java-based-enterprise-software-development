@@ -2,43 +2,31 @@ package com.example.sportsbetting.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.sportsbetting.SportsBettingService;
-import com.example.sportsbetting.builder.SportEventBuilder;
+
 import com.example.sportsbetting.domain.Currency;
-import com.example.sportsbetting.domain.Player;
-import com.example.sportsbetting.domain.SportEvent;
+
 import com.example.sportsbetting.domain.User;
-import com.example.sportsbetting.domain.Wager;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.security.Principal;
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.validation.Valid;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.http.converter.ResourceHttpMessageConverter;
+
 
 @Controller
 public class LoginController {
