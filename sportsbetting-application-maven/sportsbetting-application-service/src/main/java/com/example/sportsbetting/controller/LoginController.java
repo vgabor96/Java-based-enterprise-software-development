@@ -46,7 +46,7 @@ public class LoginController {
 
 	  
 	  @RequestMapping(value = "/welcome", method = RequestMethod.GET )
-	    public ModelAndView ShowData(Model model, Principal principal) {
+	    public ModelAndView showData(Model model, Principal principal) {
 	      
 		  User user = service.findUserByEmail(principal.getName());
 	       ModelAndView result = new ModelAndView();
@@ -60,7 +60,7 @@ public class LoginController {
 	       currencies.add(Currency.EUR);
 	       currencies.add(Currency.USD);
 	       
-	       model.addAttribute("wagers",service.TableWagers(user.getId()));
+	       model.addAttribute("wagers",service.tableWagers(user.getId()));
 	       model.addAttribute("currencies",currencies);
 
 	    
@@ -74,7 +74,7 @@ public class LoginController {
 	 
 	  
 	  @RequestMapping(value="/add", method = RequestMethod.POST)
-	  public void AddedData(HttpServletRequest request,HttpServletResponse response )
+	  public void addedData(HttpServletRequest request,HttpServletResponse response )
 	  { 
 		  	 		 			 
 		    try {
@@ -93,13 +93,13 @@ public class LoginController {
 	  }
 	  
 	  @RequestMapping(value="/delete", method = RequestMethod.POST)
-	  public void DeleteData(HttpServletRequest request,HttpServletResponse response )
+	  public void aeleteData(HttpServletRequest request,HttpServletResponse response )
 	  { String url="welcome";
 		 			
 			 
 		    try {
 		    	String pa = request.getParameter("delete");
-		    	this.service.DeleteWager(Integer.parseInt(pa));
+		    	this.service.deleteWager(Integer.parseInt(pa));
 				response.sendRedirect(url);
 			} catch (IOException e) {
 				

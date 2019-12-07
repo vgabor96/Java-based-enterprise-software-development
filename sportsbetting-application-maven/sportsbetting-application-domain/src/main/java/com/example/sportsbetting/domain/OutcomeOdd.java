@@ -16,14 +16,11 @@ public class OutcomeOdd {
 
     private BigDecimal value;
 
-    //@Temporal(TemporalType.TIME)
     private LocalDateTime validFrom;
-    //@Temporal(TemporalType.TIME)
     private LocalDateTime validUntil;
 
     @OneToOne(fetch = FetchType.EAGER)
     @Cascade(org.hibernate.annotations.CascadeType.MERGE)
-    //@JoinColumn(name = "Outcome_id")
     private Outcome outcome;
 
     public int getId() {
@@ -60,8 +57,6 @@ public class OutcomeOdd {
 
     @Transactional
     public Outcome getOutcome() {
-       // outcome.getId();
-
         return outcome;
     }
 

@@ -56,7 +56,7 @@ String id =String.valueOf(player.getId());
             this.selectedOutComeOdd = view.selectOutComeOdd(this.sportevents);
             if(selectedOutComeOdd != null)
             {
-                this.WagerCreation();
+                this.wagerCreation();
             }
         }while(selectedOutComeOdd != null);
 
@@ -66,7 +66,7 @@ String id =String.valueOf(player.getId());
     }
     private void calculateResults(){
 
-    	App.sportsBettingService.CalculateResults();
+    	App.sportsBettingService.calculateResults();
     }
     @Transactional
     private void printResults() {
@@ -80,7 +80,7 @@ String id =String.valueOf(player.getId());
     }
 
 
-    private void WagerCreation() {
+    private void wagerCreation() {
         BigDecimal value = BigDecimal.valueOf(0);
         boolean enoughbalance = false;
         player = sportsBettingService.findPlayer(0);

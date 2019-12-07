@@ -10,8 +10,6 @@ public class Result {
     private int id;
 
     @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    //@OneToMany(cascade = CascadeType.ALL)
-    //@JoinColumn(name = "result_id")
     private List<Outcome> winnerOutcomes;
 
     public int getId() {

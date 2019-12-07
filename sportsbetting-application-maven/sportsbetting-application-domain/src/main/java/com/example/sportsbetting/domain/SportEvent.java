@@ -11,24 +11,19 @@ public class SportEvent {
     private int id;
 
 
-    String title;
-    //@Temporal(TemporalType.TIME)
-    LocalDateTime startDate;
-    //@Temporal(TemporalType.TIME)
-    LocalDateTime endDate;
+    private String title;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
 
-    //@OneToMany(fetch = FetchType.LAZY)
     @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-   // @OneToMany(mappedBy = "sportEvent")
     @JoinColumn(name = "event_id")
-    List<Bet> bets;
+    private List<Bet> bets;
 
     @OneToOne(fetch = FetchType.LAZY)
-    //@JoinColumn(name = "result_id")
-    Result result;
+    private Result result;
 
     @Enumerated(EnumType.STRING)
-    EventType eventtype;
+    private EventType eventtype;
     
     public void setId(int id) {
         this.id = id;

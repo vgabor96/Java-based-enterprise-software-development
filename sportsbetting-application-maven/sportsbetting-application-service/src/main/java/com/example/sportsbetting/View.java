@@ -118,7 +118,7 @@ public class View {
             do {
                 LOG.info(messageSource.getMessage("selectOutComeOdd.message", null, locale));
                 printOutcomeOdds(events);
-                outcomeOdds = GetOutcomeOddsFromEvents(events);
+                outcomeOdds = getOutcomeOddsFromEvents(events);
                 input = in.nextLine();
                 inputInt = selectOutComeOddInputIsTrue(input, outcomeOdds.size());
                 if (inputInt > -1) {
@@ -148,7 +148,7 @@ public class View {
         return -1;
     }
 
-    private List<OutcomeOdd> GetOutcomeOddsFromEvents(List<SportEvent> events) {
+    private List<OutcomeOdd> getOutcomeOddsFromEvents(List<SportEvent> events) {
         List<OutcomeOdd> outcomeOdds = new ArrayList<>();
         for (SportEvent event : events) {
             for (Bet bet : event.getBets()) {
@@ -211,7 +211,6 @@ public class View {
 
 
             wagers = App.findAllWagers();
-            /*System.out.println("Results:");*/
             LOG.info(messageSource.getMessage("printResults.Results.message", null, locale));
             boolean iswin = false;
             String win = "";

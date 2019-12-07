@@ -45,7 +45,7 @@ public  class SportsBettingService {
 
 
     }
-    private void Initialize(){
+    private void initialize(){
 
         LocalDateTime startDate =LocalDateTime.parse("2020-01-01 12:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         LocalDateTime endDate =LocalDateTime.parse("2020-01-01 14:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
@@ -68,16 +68,16 @@ public  class SportsBettingService {
 
         //OUTCOME 1
         Outcome outcome_1 = new OutComeBuilder("1").
-                Bet(bet_1)
+                bet(bet_1)
                 .build();
 
         //OUTCOME 2
         Outcome outcome_2 = new OutComeBuilder("2").
-                Bet(bet_2)
+                bet(bet_2)
                 .build();
         //OUTCOME 3
         Outcome outcome_3 = new OutComeBuilder("3").
-                Bet(bet_2)
+                bet(bet_2)
                 .build();
 
         //OUTCOMEODD 1
@@ -302,7 +302,7 @@ public  class SportsBettingService {
 
 
 
-        Initialize();
+        initialize();
 
     }
 
@@ -311,7 +311,7 @@ public  class SportsBettingService {
     	return user;
 }
     
-    public void ReInitRepos()
+    public void reInitRepos()
     {
        betRepository.count();
        outComeOddRepository.count();
@@ -355,7 +355,7 @@ public  class SportsBettingService {
         return  this.userRepository.findAll();
     }
     
-    public String TableWagers(Integer Id){
+    public String tableWagers(Integer Id){
 
     	int i = 0;
     	String table = "";
@@ -406,7 +406,7 @@ public  class SportsBettingService {
       
     }
 
-    public Boolean DeleteWager(int id){
+    public Boolean deleteWager(int id){
 
     	try {
     		this.wagerRepository.deleteById(id);
@@ -419,7 +419,7 @@ public  class SportsBettingService {
     }
 
     
-    private Wager Randomwinner()
+    private Wager randomwinner()
     {
         List<Wager> wagers = wagerRepository.findAll();
         int randomwinnerwage = r.nextInt(wagers.size());
@@ -428,9 +428,9 @@ public  class SportsBettingService {
 
     }
 
-    public void CalculateResults() {
+    public void calculateResults() {
         if (wagerRepository.count()>0 && userRepository.count()>0) {
-            Wager wg = Randomwinner();
+            Wager wg = randomwinner();
             ArrayList<Outcome> winneroutcomes = new ArrayList<Outcome>();
             Result r = new Result();
             for (Wager wager : findAllWagers()) {

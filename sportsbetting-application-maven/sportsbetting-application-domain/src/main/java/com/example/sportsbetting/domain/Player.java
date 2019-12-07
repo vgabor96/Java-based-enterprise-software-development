@@ -17,7 +17,7 @@ public class Player {
     private BigDecimal balance;
     private LocalDate birth;
     @Enumerated(EnumType.STRING)
-    Currency currency;
+    private Currency currency;
     public int getId() {
         return id;
     }
