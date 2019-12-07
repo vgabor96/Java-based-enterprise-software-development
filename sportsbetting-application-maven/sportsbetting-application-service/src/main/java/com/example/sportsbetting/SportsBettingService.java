@@ -50,11 +50,11 @@ public  class SportsBettingService {
         LocalDateTime startDate =LocalDateTime.parse("2020-01-01 12:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         LocalDateTime endDate =LocalDateTime.parse("2020-01-01 14:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         //SPORT EVENT
-        SportEvent se = new SportEventBuilder("Arsenal vs Chelsea")
+        FootballSportEvent se = new SportEventBuilder("Arsenal vs Chelsea")
                 .startDate(startDate)
                 .endDate(endDate)
                 .eventtype(EventType.FOOTBALLMATCH)
-                .build();
+                .buildFootballSportEvent();
         //BET 1
         Bet bet_1 = new BetBuilder("player Oliver Giroud score")
                 .event(se)

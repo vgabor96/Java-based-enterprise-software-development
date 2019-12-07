@@ -1,12 +1,8 @@
 package com.example.sportsbetting.domain;
-
-import org.springframework.transaction.annotation.Transactional;
-
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Transactional
 public class Bet {
     @Id
     @GeneratedValue

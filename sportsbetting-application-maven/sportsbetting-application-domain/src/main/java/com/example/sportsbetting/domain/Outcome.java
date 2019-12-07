@@ -1,6 +1,5 @@
 package com.example.sportsbetting.domain;
 
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
 import java.util.List;
@@ -13,7 +12,7 @@ public class Outcome {
 
     private String description;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Bet bet;
 
     @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
@@ -35,7 +34,6 @@ public class Outcome {
         this.description = description;
     }
 
-    @Transactional
     public Bet getBet() {
         bet.getId();
         return bet;

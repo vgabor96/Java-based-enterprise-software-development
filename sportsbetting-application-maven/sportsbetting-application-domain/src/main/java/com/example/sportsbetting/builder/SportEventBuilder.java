@@ -2,8 +2,9 @@ package com.example.sportsbetting.builder;
 
 import com.example.sportsbetting.domain.Bet;
 import com.example.sportsbetting.domain.EventType;
+import com.example.sportsbetting.domain.FootballSportEvent;
 import com.example.sportsbetting.domain.Result;
-import com.example.sportsbetting.domain.SportEvent;
+import com.example.sportsbetting.domain.TennisSportEvent;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -46,9 +47,22 @@ public class SportEventBuilder {
         return this;
     }
 
-    public SportEvent build(){
+    public FootballSportEvent buildFootballSportEvent(){
 
-        SportEvent sportEvent = new SportEvent();
+        FootballSportEvent sportEvent = new FootballSportEvent();
+        sportEvent.setTitle(this.title);
+        sportEvent.setStartDate(this.startDate);
+        sportEvent.setEndDate(this.endDate);
+        sportEvent.setBets(this.bets);
+        sportEvent.setResult(this.result);
+        sportEvent.setEventtype(this.eventtype);
+
+        return sportEvent;
+    }
+    
+    public TennisSportEvent buildTennisSportEvent(){
+
+        TennisSportEvent sportEvent = new TennisSportEvent();
         sportEvent.setTitle(this.title);
         sportEvent.setStartDate(this.startDate);
         sportEvent.setEndDate(this.endDate);

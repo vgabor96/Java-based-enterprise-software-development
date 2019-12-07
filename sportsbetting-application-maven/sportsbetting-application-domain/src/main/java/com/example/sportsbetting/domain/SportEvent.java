@@ -5,7 +5,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-public class SportEvent {
+@Inheritance
+public abstract class SportEvent {
     @Id
     @GeneratedValue
     private int id;
